@@ -1,0 +1,72 @@
+[tool.poetry]
+authors = ["Andrei.Aksionov"]
+description = ""
+license = "MIT"
+name = "thelastalgorithmscourseyouwillneed"
+readme = "README.md"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+black = {version = "*", extras = ["jupyter"]}
+darglint = "~1.8.1"
+pre-commit = "~3.0.4"
+ruff = "0.0.255"
+
+# -------------------------------------- Linting and Formatting --------------------------------------
+
+[tool.ruff]
+ignore = [
+  "ANN002", # Missing type annotation for *_
+  "ANN003", # Missing type annotation for **kwargs
+  "ANN101", # Missing type annotation for self in method
+  "B905", # zip() without an explicit strict= parameter
+  "D100", # Missing docstring in public module
+  "D101", # Missing docstring in public class
+  "D105", # Missing docstring in magic method
+  "EM", # flake8-errmsg
+  "FBT", # flake8-boolean-trap
+  "G", # flake8-logging-format
+  "INP001", # File {filename} is part of an implicit namespace package. Add an __init__.py
+  "N812", # Lowercase {name} imported as non-lowercase {asname}
+  "PLR0913", # Too many arguments to function call
+  "PLR2004", # Magic value used in comparison, consider replacing {value} with a constant variable
+  "PT023", # use @pytest.mark.asyncio() over @pytest.mark.asyncio
+  "TCH", # flake8-type-checking
+  "TRY003", # Avoid specifying long messages outside the exception class
+  "UP032", # Use f-string instead of `format`
+]
+line-length = 120
+select = [
+  "ALL",
+]
+target-version = "py38"
+
+[tool.ruff.pydocstyle]
+convention = "pep257"
+
+[tool.ruff.per-file-ignores]
+# D102 - Missing docstring in public method
+# S101 - Use of `assert` detected
+"*_test.py" = ["D102", "S101"]
+# D104 - missing docstring in public method
+# F401 - imported but unused
+"__init__.py" = [
+  "F401",
+  "D104",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line_length = 120
+target-version = ["py38"]
+
+# -------------------------------------- Build --------------------------------------
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
