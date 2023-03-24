@@ -3,17 +3,35 @@ authors = ["Andrei.Aksionov"]
 description = ""
 license = "MIT"
 name = "thelastalgorithmscourseyouwillneed"
+packages = [{include = "course"}]
 readme = "README.md"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+# TODO: downgrade python version
+python = "^3.8"
+
+[tool.poetry.group.dev]
+optional = true
 
 [tool.poetry.group.dev.dependencies]
 black = {version = "*", extras = ["jupyter"]}
 darglint = "~1.8.1"
-pre-commit = "~3.0.4"
-ruff = "0.0.255"
+pre-commit = "~3.2.0"
+ruff = "0.0.259"
+
+# ---------------------------------------------- Tests -----------------------------------------------
+
+[tool.poetry.group.test.dependencies]
+pytest = "~7.2.2"
+pytest-cov = "~4.0.0"
+
+[tool.pytest.ini_options]
+markers = [
+  "search",
+]
+python_files = "*_test.py"
+testpaths = ["tests"]
 
 # -------------------------------------- Linting and Formatting --------------------------------------
 
@@ -25,6 +43,7 @@ ignore = [
   "B905", # zip() without an explicit strict= parameter
   "D100", # Missing docstring in public module
   "D101", # Missing docstring in public class
+  "D103", # Missing docstring in public function
   "D105", # Missing docstring in magic method
   "EM", # flake8-errmsg
   "FBT", # flake8-boolean-trap
@@ -34,6 +53,7 @@ ignore = [
   "PLR0913", # Too many arguments to function call
   "PLR2004", # Magic value used in comparison, consider replacing {value} with a constant variable
   "PT023", # use @pytest.mark.asyncio() over @pytest.mark.asyncio
+  "SIM110", # Use `return any(item == needle for item in haystack)` instead of `for` loop
   "TCH", # flake8-type-checking
   "TRY003", # Avoid specifying long messages outside the exception class
   "UP032", # Use f-string instead of `format`
@@ -63,7 +83,6 @@ profile = "black"
 
 [tool.black]
 line_length = 120
-target-version = ["py38"]
 
 # -------------------------------------- Build --------------------------------------
 

@@ -4,7 +4,14 @@
     <h5 align="center">presented by ThePrimagen<h5>
 </p>
 
+![Python 3.8-3.11](./assets/readme/python_versions.svg)
+
+### TODO: add test passing badge
+
+### TODO: add test coverage badge
+
 ***
+<p align=center><img src="assets/readme/algorithms.png"></p>
 
 I decided to take class in a cool course [The Last Algorithms Course You'll Need](https://frontendmasters.com/courses/algorithms/) presented by ThePrimagen. It's easy to understand (sometimes even funny), yet covers all the concepts of algorithms in about 9 hours. Highly recommended. And it's free!!!
 
@@ -16,7 +23,37 @@ I decided to take class in a cool course [The Last Algorithms Course You'll Need
     poetry install
     ```
 
+2. Implement algorithm and run tests:
+
+    - To run all tests:
+
+        ```bash
+        pytest
+        ```
+
+    - To run specific test by providing path, which mimics path to the file with algorithm `course->test/...`, so for file `course/search/linear_search.py` it will be:
+
+        ```bash
+        pytest tests/search/linear_search_test.py
+        ```
+
+    - To run the whole chapter you can use pytest marks:
+
+        ```bash
+        pytest -m search
+        ```
+
+# Want to participate in development?
+
+Install all packages required for development:
+
+```bash
+poetry install --with dev
+```
+
 ## Additional: pre-commit hooks
+
+> **Note**: it is recommended for development, because there is a github workflow that executes all the steps from pre-commit anyway, so if you install you will not be surprised why there is a red cross on your PR. Of course if you fill lucky you can skip it :smile:
 
 In order to install pre-commit hooks run:
 
