@@ -67,25 +67,3 @@ jobs:
         run: |
           source $VENV
           pytest
-
-      #----------------------------------------------
-      #              run test coverage
-      #----------------------------------------------
-      - name: Run test coverage
-        run: |
-          source $VENV
-          pytest --cov
-      # test coverage badge
-      # it creates folder in which the badge is saved and then the badge is pushed to an orphan branch
-      - name: Creating coverage folder
-        run: |
-          mkdir -p coverage
-      - name: Coverage Badge
-        uses: tj-actions/coverage-badge-py@v2
-        with:
-          output: coverage/coverage.svg
-      - name: Publish coverage report to coverage-badge branch
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: coverage-badge
-          folder: coverage
