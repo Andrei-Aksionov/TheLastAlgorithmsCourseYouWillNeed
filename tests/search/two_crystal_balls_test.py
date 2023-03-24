@@ -2,7 +2,7 @@ import random
 
 import pytest
 
-from course.search.two_crystal_balls import two_crystal_balls, two_crystal_balls_logN
+from course.search.two_crystal_balls import two_crystal_balls, two_crystal_balls_logn
 
 # ----------------------- sqrt(n) solution -----------------------
 
@@ -45,7 +45,7 @@ def test_two_crystal_balls_logn(size: int) -> None:
     data = [False] * idx + [True] * (size - idx)
 
     # When
-    result = two_crystal_balls_logN(data)
+    result = two_crystal_balls_logn(data)
 
     # Then
     assert result == idx
@@ -58,7 +58,7 @@ def test_two_crystal_balls_logn_not_found(size: int) -> None:
     data = [False] * size
 
     # When
-    result = two_crystal_balls_logN(data)
+    result = two_crystal_balls_logn(data)
 
     # Then
     assert result == -1

@@ -5,8 +5,7 @@
 </p>
 
 ![Python 3.8-3.11](./assets/readme/python_versions.svg)
-
-### TODO: add test passing badge
+[![test](https://github.com/Andrei-Aksionov/TheLastAlgorithmsCourseYouWillNeed/actions/workflows/test.yaml/badge.svg)](https://github.com/Andrei-Aksionov/TheLastAlgorithmsCourseYouWillNeed/actions/workflows/test.yaml)
 
 ### TODO: add test coverage badge
 
