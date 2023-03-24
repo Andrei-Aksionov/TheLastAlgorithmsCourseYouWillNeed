@@ -7,8 +7,6 @@
 ![Python 3.8-3.11](./assets/readme/python_versions.svg)
 [![test](https://github.com/Andrei-Aksionov/TheLastAlgorithmsCourseYouWillNeed/actions/workflows/test.yaml/badge.svg)](https://github.com/Andrei-Aksionov/TheLastAlgorithmsCourseYouWillNeed/actions/workflows/test.yaml)
 
-### TODO: add test coverage badge
-
 ***
 <p align=center><img src="assets/readme/algorithms.png"></p>
 
