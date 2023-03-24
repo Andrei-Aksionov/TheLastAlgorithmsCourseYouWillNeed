@@ -73,6 +73,7 @@ jobs:
       #----------------------------------------------
       - name: Run test coverage
         run: |
+          source $VENV
           pytest --cov
       # test coverage badge
       - name: Coverage Badge
