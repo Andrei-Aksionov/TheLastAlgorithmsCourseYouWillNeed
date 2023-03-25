@@ -25,7 +25,7 @@ The main caveat of the course (that you might have already spotted) is that it's
 
 The good thing that algorithms are more or less a universal thing, so it's easy to understand them even if they are written in other language. That means that if you know only python that should not stop you. I mean if I somehow managed to understand the code in the course you can definitely do the same.
 
-The bad thing that all the test that are provided for the course are also for javascript/typescript (or only typescript, for me it's all the same thing :shraud:). That why this repo is created.
+The bad thing that all the test that are provided for the course are also for javascript/typescript (or only typescript, for me it's all the same thing :shrug:). That why this repo is created.
 
 > *Note* How you should use this repo: watch the course, implement algorithms here and run corresponding tests. It's that easy!
 
