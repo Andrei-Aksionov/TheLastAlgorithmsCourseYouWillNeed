@@ -3,6 +3,7 @@ from typing import List
 
 def two_crystal_balls(breaks: List[bool]) -> int:
     # O(sqrtN) time | O(1) space
+    # but for me it looks more like O(n/sqrtN + sqrtN) time
 
     # find size of the jump (sqrt of the list)
     jump_amount = int(len(breaks) ** 0.5)
