@@ -27,7 +27,7 @@ The good thing that algorithms are more or less a universal thing, so it's easy 
 
 The bad thing that all the test that are provided for the course are also for javascript/typescript (or only typescript, for me it's all the same thing :shrug:). That why this repo is created.
 
-> *Note* How you should use this repo: watch the course, implement algorithms here and run corresponding tests. It's that easy!
+> **Note**: How you should use this repo: watch the course, implement algorithms here and run corresponding tests. It's that easy!
 
 Good luck and happy programming.
 
