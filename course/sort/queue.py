@@ -9,27 +9,32 @@ class Node:
 
 
 class Queue:
+    # -----    -----    -----    -----
+    # | A | -> | B | -> | C | -> | D |
+    # -----    -----    -----    -----
+    #   ↑                          ↑
+    # head                        tail
     def __init__(self) -> None:
         self.head = self.tail = None
         self.length = 0
 
     def enqueue(self, value: int) -> None:
         """Add element to the end of the queue."""
-        new_node = Node(value)
+        node = Node(value)
         self.length += 1
 
         # if it's an empty queue
         if not (self.head and self.tail):
-            self.head = self.tail = new_node
+            self.head = self.tail = node
         else:
-            self.tail.next = new_node
-            self.tail = new_node
+            self.tail.next = node
+            self.tail = node
 
-    def dequeue(self) -> int:
+    def dequeue(self) -> Optional[int]:
         """Pop the first element of the queue."""
         # if it's an empty queue
         if not self.head:
-            raise ValueError("You are trying to dequeue an empty queue")
+            return None
 
         self.length -= 1
 
