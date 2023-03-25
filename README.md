@@ -1,7 +1,8 @@
 
 <p>
-    <h2 align="center">Welcome to The Last Algorithms Course You'll Need</h2>
-    <h5 align="center">presented by ThePrimagen<h5>
+    <h2 align="center">The Last Algorithms Course You'll Need</h2>
+    <h5 align="center">presented by ThePrimeagen on FrontendMasters.com<h5>
+    <h6 align="center">in Python<h6>
 </p>
 
 ![Python 3.8-3.11](./assets/readme/python_versions.svg)
@@ -10,7 +11,7 @@
 ***
 <p align=center><img src="assets/readme/algorithms.png"></p>
 
-I decided to take class in a cool course [The Last Algorithms Course You'll Need](https://frontendmasters.com/courses/algorithms/) presented by ThePrimagen. It's easy to understand (sometimes even funny), yet covers all the concepts of algorithms in about 9 hours. Highly recommended. And it's free!!!
+I decided to take class in a cool course [The Last Algorithms Course You'll Need](https://frontendmasters.com/courses/algorithms/) presented by ThePrimeagen. It's easy to understand (sometimes even funny), yet covers all the concepts of algorithms in about 9 hours. Highly recommended. And it's free!!!
 
 # How to use it
 

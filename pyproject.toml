@@ -39,10 +39,7 @@ ignore = [
   "ANN003", # Missing type annotation for **kwargs
   "ANN101", # Missing type annotation for self in method
   "B905", # zip() without an explicit strict= parameter
-  "D100", # Missing docstring in public module
-  "D101", # Missing docstring in public class
-  "D103", # Missing docstring in public function
-  "D105", # Missing docstring in magic method
+  "D",
   "EM", # flake8-errmsg
   "FBT", # flake8-boolean-trap
   "G", # flake8-logging-format
