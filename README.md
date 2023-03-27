@@ -15,7 +15,7 @@ Have you heard about an awesome [algorithms course](https://frontendmasters.com/
 
 Is it indeed the last algorithmic course you will ever need? Highly doubt about it. The course teaches you the basics, the rest you have to learn yourself by practicing.
 
-> It's like driving school in a way that it teaches you the basics. The remaining stuff that makes you a PRO driver you have to learn on your own: double parking, tailgating, left lane hogging, yelling at other drivers and constantly honking (if you are a New Yorker) :grinning:.
+> It's like driving school in a way that it teaches you the basics. The remaining attributes of a PRO driver you have to learn on your own: double parking, tailgating, left lane hogging, yelling at other drivers and constantly honking (if you are a New Yorker) :grinning:.
 
 Have I mentioned that [FrontendMasters.com](https://frontendmasters.com/) provides you a free access to any 5 course of your choice? Yes, this algorighms course is for free. So what are you waiting for? Steady, ready, go ... :runner:
 
