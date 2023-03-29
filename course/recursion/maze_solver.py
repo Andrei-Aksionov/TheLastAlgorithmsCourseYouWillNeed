@@ -51,6 +51,8 @@ def walk(
 
 
 def maze_solver(maze: List[List[str]], wall: str, start: Point, end: Point) -> List[Point]:
+    # O(n) time | O(n) space
+    # O(n) space because of the recursion: need to store state in the stack for each step
     seen = [[False] * len(maze[0]) for _ in range(len(maze))]
     path = []
 
