@@ -19,13 +19,13 @@ def breadth_first_search(head: BinaryNode, needle: int) -> bool:
 
     while queue:
         node = queue.popleft()
+        if not node:
+            continue
 
         if node.value == needle:
             return True
 
-        if node.left:
-            queue.append(node.left)
-        if node.right:
-            queue.append(node.right)
+        queue.append(node.left)
+        queue.append(node.right)
 
     return False

@@ -1,6 +1,7 @@
 import pytest
 
 from course.trees.binary_tree_bfs import BinaryNode, breadth_first_search
+from course.trees.binary_tree_search import search_dfs
 
 """
 export const tree: BinaryNode<number> = {
@@ -79,6 +80,16 @@ tree = BinaryNode(
 def test_pre_order_binary_tree_traversal(needle: int, expected_result: bool) -> None:
     # When
     result = breadth_first_search(tree, needle)
+
+    # Then
+    assert result == expected_result
+
+
+@pytest.mark.binary_tree
+@pytest.mark.parametrize(("needle", "expected_result"), [(45, True), (7, True), (69, False)])
+def test_binary_tree_search_dfs(needle: int, expected_result: bool) -> None:
+    # When
+    result = search_dfs(tree, needle)
 
     # Then
     assert result == expected_result
