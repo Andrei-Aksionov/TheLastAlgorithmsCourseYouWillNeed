@@ -17,7 +17,7 @@ Let's use this tree as an example input for the algorithms below.
 # Note: for all types of traversal:
 # Time: O(n) we need to visit all the nodes anyway
 # Space: O(h) recursion depth is equal to a hight of a tree
-# where h=1 for unbalanced binary tree and h=n/2+1 - for a perfectly balanced one.
+# where h=n for unbalanced binary tree and h=logn - for a perfectly balanced one.
 
 
 def pre_order_traversal(head: BinaryTreeNode) -> List[int]:

@@ -39,6 +39,7 @@ def compare_dfs(a: Optional[BinaryTreeNode], b: Optional[BinaryTreeNode]) -> boo
     # Time: O(n) because we need to traverse all nodes at worst
     # Space: O(h) because we traverse as many steps as deep is the tree
     # Note: n - number of elements of the smallest tree, h - height of the smallest tree
+    # h ranges from n for an extremely unbalanced tree and logn - for perfectly balanced
 
     # compare shape/structure
     if a is None and b is None:
