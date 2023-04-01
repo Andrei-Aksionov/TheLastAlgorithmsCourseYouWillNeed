@@ -6,7 +6,6 @@ from course.trees.binary_tree_node import BinaryTreeNode
 
 def search_dfs(head: Optional[BinaryTreeNode], needle: int) -> bool:
     # Time: O(n) in the worst case we need to check all nodes
-    # TODO: h is in range from logn to n
     # Space: O(h) in the worst case recursion depth is the height of a tree
     # h=n if binary tree is extremely unbalanced, h=logn - perfectly balanced
 
