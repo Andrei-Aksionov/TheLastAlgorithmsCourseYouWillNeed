@@ -14,10 +14,14 @@
 
 """
 from collections import deque
+from dataclasses import dataclass
 from typing import List, Optional
 
 
 def adjacency_matrix_bfs(graph: List[List[int]], source: int, needle: int) -> Optional[List[int]]:
+    # Time: O(n^2) because we need to visit every adjacent node of each node
+    # Space: O(n^2) we need to store for each node adjacency to other nodes
+
     # For better understanding let's use the graph depicted above
     # Assume that our starting point (source) is 10 and our needle is 2
 
@@ -80,3 +84,42 @@ def adjacency_matrix_bfs(graph: List[List[int]], source: int, needle: int) -> Op
 
     # The final result is [0, 3, 2]
     return [source] + out[::-1]
+
+
+@dataclass
+class GraphEdge:
+    to: int
+    weight: int
+
+
+def adjacency_list_dfs(graph: List[GraphEdge], source: int, needle: int) -> Optional[List[int]]:
+    # V - vertex/node, E - edge (connection between nodes)
+    # Time: O(V + E) because we need to visit all nodes by all connections
+    # Space: O(V + E) the same as for time complexity
+
+    def walk(graph: List[GraphEdge], current: int, needle: int, seen: List[bool], path: List[int]) -> bool:
+        if seen[current]:
+            return False
+        seen[current] = True
+
+        # Recurse step
+        # pre
+        path.append(current)
+        if current == needle:
+            return True
+        # recursion
+        adjacencies: List[GraphEdge] = graph[current]
+        for edge in adjacencies:
+            if walk(graph, edge.to, needle, seen, path):
+                return True
+
+        # post
+        # clean `path` if we haven't found the needle
+        path.pop()
+
+        return False
+
+    seen = [False] * len(graph)
+    path = []
+    walk(graph, source, needle, seen, path)
+    return path or None
