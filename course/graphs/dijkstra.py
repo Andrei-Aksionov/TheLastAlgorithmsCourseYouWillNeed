@@ -124,3 +124,12 @@ def dijkstra_list_shortest_path(source: int, sink: int, arr: List[GraphEdge]) ->
 
     out.append(source)
     return out[::-1]
+
+
+def dijkstra_list_shortest_path_min_heap(source: int, sink: int, arr: List[GraphEdge]) -> List[int]:  # noqa: ARG001
+    # TODO: implement dijkstra algorithm with min heap
+    # that will reduce time complexity from O(V^2 + E) ---> O(logV*(V+E))
+    # because we need to iterate over all nodes by all edges anyway, but everytime
+    # we need the smallest distance we need to update min heap, which has time complexity of O(logn), where
+    # n in our case is V (the number of nodes)
+    ...
