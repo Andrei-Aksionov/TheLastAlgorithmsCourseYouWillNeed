@@ -10,6 +10,11 @@ class Node:
 
 
 class LinkedList:
+    # -----      -----      -----      -----
+    # | A | <--> | B | <--> | C | <--> | D |
+    # -----      -----      -----      -----
+    #   ↑                                ↑
+    # head                              tail
     def __init__(self) -> None:
         self.length = 0
         self.head: Node = None
