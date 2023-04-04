@@ -9,7 +9,8 @@ from course.heap.min_heap import MinHeap
 
 @pytest.mark.heap
 def test_min_heap_all_combined() -> None:
-    # This one is taken (and adopted for python) from the ThePrimeagen repo: https://github.dev/ThePrimeagen/kata-machine
+    # This one is taken (and adopted for python) from the ThePrimeagen repo:
+    # https://github.com/ThePrimeagen/kata-machine/blob/master/src/__tests__/MinHeap.ts
     # that was used for testing in the video course
 
     heap = MinHeap()
