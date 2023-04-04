@@ -13,6 +13,8 @@
 
 Have you heard about an awesome [algorithms course](https://frontendmasters.com/courses/algorithms/) on `FrontendMasters.com` presented by `ThePrimeagen`? If no, then you are missing a lot: it is well explained and presented in a clear and sometimes funny way (it's ThePrimeagen after all :smirk:) yet coveres all the basic in a deep enough manner.
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Lwr3-doAgaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 Is it indeed the last algorithmic course you will ever need? Highly doubt about it. The course teaches you the basics, the rest you have to learn yourself by practicing.
 
 > It's like driving school in a way that it teaches you the basics. The remaining attributes of a PRO driver you have to learn on your own: double parking, tailgating, left lane hogging, yelling at other drivers and constantly honking (if you are a New Yorker) :grinning:.
