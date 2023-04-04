@@ -13,7 +13,12 @@
 
 Have you heard about an awesome [algorithms course](https://frontendmasters.com/courses/algorithms/) on `FrontendMasters.com` presented by `ThePrimeagen`? If no, then you are missing a lot: it is well explained and presented in a clear and sometimes funny way (it's ThePrimeagen after all :smirk:) yet coveres all the basic in a deep enough manner.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Lwr3-doAgaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+Here is a preview of the course (click on the image):
+<div align="center">
+      <a href="https://www.youtube.com/watch?v=Lwr3-doAgaI">
+         <img src="https://img.youtube.com/vi/Lwr3-doAgaI/0.jpg" style="width:50%;">
+      </a>
+</div>
 
 Is it indeed the last algorithmic course you will ever need? Highly doubt about it. The course teaches you the basics, the rest you have to learn yourself by practicing.
 
@@ -21,7 +26,7 @@ Is it indeed the last algorithmic course you will ever need? Highly doubt about 
 
 Have I mentioned that [FrontendMasters.com](https://frontendmasters.com/) provides you a free access to any 5 course of your choice? Yes, this algorighms course is for free. So what are you waiting for? Steady, ready, go ... :runner:
 
-# Motivation of this repository
+# Motivation for this repository
 
 The main caveat of the course (that you might have already spotted) is that it's for fronted developers, so the code is presented in javascript/typescript. I don't know any of those, I'm just an average python developer :monkey:
 

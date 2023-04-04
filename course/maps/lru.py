@@ -14,6 +14,8 @@
 
 from typing import Optional
 
+from course.maps.dictionary import Dictionary
+
 
 class Node:
     def __init__(self, value: int, next: Optional["Node"] = None, prev: Optional["Node"] = None) -> None:  # noqa: A002
@@ -30,8 +32,8 @@ class LRU:
         self.length = 0
         self.capacity = capacity
         self.head = self.tail = None
-        self.lookup = {}
-        self.reverse_lookup = {}
+        self.lookup = Dictionary()
+        self.reverse_lookup = Dictionary()
 
     def update(self, key: str, value: int) -> None:
         """Update node's value that is accessed by the key if it exists, create new if doesn't."""
