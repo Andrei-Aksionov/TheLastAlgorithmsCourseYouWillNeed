@@ -9,7 +9,12 @@
 [![test](https://github.com/Andrei-Aksionov/TheLastAlgorithmsCourseYouWillNeed/actions/workflows/test.yaml/badge.svg)](https://github.com/Andrei-Aksionov/TheLastAlgorithmsCourseYouWillNeed/actions/workflows/test.yaml)
 
 ***
-<p align=center><img src="assets/readme/algorithms.png"></p>
+*Click on the image to see video preview of the course* ⤵
+<div align="center">
+      <a href="https://www.youtube.com/watch?v=Lwr3-doAgaI">
+         <img src="assets/readme/algorithms.png">
+      </a>
+</div>
 
 Have you heard about an awesome [algorithms course](https://frontendmasters.com/courses/algorithms/) on `FrontendMasters.com` presented by `ThePrimeagen`? If no, then you are missing a lot: it is well explained and presented in a clear and sometimes funny way (it's ThePrimeagen after all :smirk:) yet coveres all the basic in a deep enough manner.
 
@@ -19,7 +24,7 @@ Is it indeed the last algorithmic course you will ever need? Highly doubt about 
 
 Have I mentioned that [FrontendMasters.com](https://frontendmasters.com/) provides you a free access to any 5 course of your choice? Yes, this algorighms course is for free. So what are you waiting for? Steady, ready, go ... :runner:
 
-# Motivation of this repository
+# Motivation for this repository
 
 The main caveat of the course (that you might have already spotted) is that it's for fronted developers, so the code is presented in javascript/typescript. I don't know any of those, I'm just an average python developer :monkey:
 

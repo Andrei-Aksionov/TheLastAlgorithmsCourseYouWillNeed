@@ -4,7 +4,7 @@ from course.trees.compare_binary_trees import compare_bfs, compare_dfs
 from tests.trees.tree_examples import tree_1, tree_2
 
 #############################################################
-################# Breadth First Search ######################
+################## Breadth First Search #####################
 #############################################################
 
 
@@ -35,7 +35,7 @@ def test_compare_binary_tree_breadth_first_different() -> None:
 
 
 #############################################################
-################# Depth First Search ########################
+################### Depth First Search ######################
 #############################################################
 
 

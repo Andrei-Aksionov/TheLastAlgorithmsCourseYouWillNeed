@@ -61,6 +61,21 @@ def test_queue_emptied_head_tail_none(numbers: List[int]) -> None:
 
 
 @pytest.mark.sort
+@pytest.mark.parametrize("numbers", [random.sample(range(-100, 100), random.randint(1, 25)) for _ in range(10)])
+def test_queue_emptied_dequeue_return_none(numbers: List[int]) -> None:
+    queue = Queue()
+    # add all numbers into the queue
+    for number in numbers:
+        queue.enqueue(number)
+
+    # delete all the elements in the queue
+    for _ in numbers:
+        queue.dequeue()
+
+    assert queue.dequeue() is None
+
+
+@pytest.mark.sort
 def test_queue_empty_peek_return_none() -> None:
     queue = Queue()
 

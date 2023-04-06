@@ -62,6 +62,7 @@ def maze_solver(maze: List[List[str]], wall: str, start: Point, end: Point) -> L
 
 
 def draw_path(maze: List[List[str]], path: List[Point]) -> List[str]:
+    """Helper function to show the maze with the path by algorithm."""
     maze = [list(row) for row in maze]
 
     for point in path:

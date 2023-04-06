@@ -8,7 +8,8 @@ from course.doubly_linked_list.doubly_linked_list import LinkedList
 
 @pytest.mark.linked_list
 def test_linked_list_all_combined() -> None:
-    # This one is taken (and adopted for python) from the ThePrimeagen repo: https://github.dev/ThePrimeagen/kata-machine
+    # This one is taken (and adopted for python) from the ThePrimeagen repo:
+    # https://github.com/ThePrimeagen/kata-machine/blob/master/src/__tests__/DoublyLinkedList.ts
     # that was used for testing in the video course
 
     # Given

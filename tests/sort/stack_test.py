@@ -8,7 +8,7 @@ from course.sort.stack import Stack
 
 @pytest.mark.sort
 @pytest.mark.parametrize("numbers", [random.sample(range(-100, 100), random.randint(1, 25)) for _ in range(10)])
-def test_queue_pop(numbers: List[int]) -> None:
+def test_stack_pop(numbers: List[int]) -> None:
     # Given
     stack = Stack()
     for number in numbers:
@@ -24,7 +24,7 @@ def test_queue_pop(numbers: List[int]) -> None:
 
 @pytest.mark.sort
 @pytest.mark.parametrize("numbers", [random.sample(range(-100, 100), random.randint(1, 25)) for _ in range(10)])
-def test_queue_pop_with_peek(numbers: List[int]) -> None:
+def test_stack_pop_with_peek(numbers: List[int]) -> None:
     stack = Stack()
     # add all numbers into the queue
     for number in numbers:
@@ -64,3 +64,10 @@ def test_queue_empty_peek_return_none() -> None:
     stack = Stack()
 
     assert stack.peek() is None
+
+
+@pytest.mark.sort
+def test_queue_empty_pop_return_none() -> None:
+    stack = Stack()
+
+    assert stack.pop() is None

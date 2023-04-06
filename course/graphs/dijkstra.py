@@ -1,17 +1,18 @@
-# TODO: remake it as a adjacency list
 """
-          Graph                        Adjacency Matrix
+          Graph                        Adjacency Matrix         Adjacency List
 
            (10)                         0   1   2   3
-      [0] ➜  ➜  ➜ [1]                 ----|---|---|---|
-       ↑  ⬊  (5)   ↑                0 |  0  10   0   5
-   (7) ↑     ⬊     ↑ (1)            1 |  0   0   0   0
-       ↑   (2)   ⬊ ↑                2 |  7   0   0   0
-      [2] ←  ←  ← [3]               3 |  0   1   2   0
-
+      [0] ➜  ➜  ➜ [1]                 ----|---|---|---|         {
+       ↑  ⬊  (5)   ↑                0 |  0  10   0   5            0: [{"to": 1, "weight": 10}, {"to": 3, "weight": 5}],
+   (7) ↑     ⬊     ↑ (1)            1 |  0   0   0   0            1: [],
+       ↑   (2)   ⬊ ↑                2 |  7   0   0   0            2: [{"to": 0, "weight": 7}],
+      [2] ←  ←  ← [3]               3 |  0   1   2   0            3: [{"to": 1, "weight": 1}, {"to": 2, "weight": 2}],
+                                                                }
     Legend: [] - node
             () - weight
             ➜  - direction
+
+    Video explanation: https://youtu.be/pVfj6mxhdMw
 
     Example task: find the shortest path from 0 to 1
     Possible paths: 0 -> 1 (weight of 10), 0 -> 3 -> 1 (weight 6)
@@ -27,7 +28,7 @@
             1: 0,
             3: 0,
         }
-    Out of all nodes for which distance was updated find unseen node with the smallest distance;
+    Out of all nodes for which distance was updated find an unseen node with the smallest distance;
     on the first iteration it will be 3
 
     Repeat the above until we mark all reachable nodes as seen or until we find our needle/sink
@@ -49,6 +50,7 @@
 
 """
 
+import heapq
 from dataclasses import dataclass
 from typing import List
 
@@ -126,10 +128,56 @@ def dijkstra_list_shortest_path(source: int, sink: int, arr: List[GraphEdge]) ->
     return out[::-1]
 
 
-def dijkstra_list_shortest_path_min_heap(source: int, sink: int, arr: List[GraphEdge]) -> List[int]:  # noqa: ARG001
-    # TODO: implement dijkstra algorithm with min heap
+def dijkstra_list_shortest_path_min_heap(source: int, sink: int, arr: List[GraphEdge]) -> List[int]:
+    # dijkstra algorithm with min heap
     # that will reduce time complexity from O(V^2 + E) ---> O(logV*(V+E))
     # because we need to iterate over all nodes by all edges anyway, but everytime
     # we need the smallest distance we need to update min heap, which has time complexity of O(logn), where
     # n in our case is V (the number of nodes)
-    ...
+
+    seen = [False] * len(arr)  # what nodes we already visited
+    previous = [-1] * len(arr)  # how did we get to the node
+    distances = [float("inf")] * len(arr)  # the shortest path to the node
+    distances[source] = 0
+    current_distances = [(0, source)]  # here we will store distances to an unseen nodes
+
+    while current_distances:
+        # previously in order to find an unvisited node with the smallest distance
+        # we had to traverse over all nodes O(n)
+        # now with help of MinHeap we can do it in O(1) because the smallest distance
+        # node is in the top of MinHeap
+        # with combination of pushing to MinHeap it reduces time complexity from O(n) -> O(logn)
+        current_distance, current_node = heapq.heappop(current_distances)
+        # if we have already found the needle/sink
+        if current_node == sink:
+            break
+        # don't forted to mark the node as visited
+        seen[current_node] = True
+
+        # iterate over all connected nodes to the current one
+        for edge in arr[current_node]:
+            if seen[edge.to]:
+                continue
+
+            # update distance for each node that can be reached
+            distance = current_distance + edge.weight
+            if distance < distances[edge.to]:
+                distances[edge.to] = distance
+                previous[edge.to] = current_node
+                # pushing to MinHeap is O(logn) time complexity
+                heapq.heappush(current_distances, (distance, edge.to))
+
+    # if we haven't found a path
+    if previous[sink] == -1:
+        return []
+
+    # write down the path from needle/sink to the source
+    out = []
+    current_node = sink
+
+    while previous[current_node] != -1:
+        out.append(current_node)
+        current_node = previous[current_node]
+
+    out.append(source)
+    return out[::-1]

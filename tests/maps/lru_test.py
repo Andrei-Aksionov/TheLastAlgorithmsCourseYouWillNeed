@@ -122,3 +122,29 @@ def test_lru_get_value_will_not_be_dropped(values: List[int], keys: List[int], c
 
     # Then
     assert lru.get(keys[0]) is not None
+
+
+@pytest.mark.map
+@pytest.mark.parametrize(
+    ("values", "keys", "capacity", "new_value"),
+    list(
+        zip(
+            [random.sample(range(-100, 100), random.randint(1, 25)) for _ in range(10)],
+            [random.sample(range(-100, 100), random.randint(1, 25)) for _ in range(10)],
+            [random.randint(2, 5) for _ in range(10)],
+            [random.randint(-100, 100) for _ in range(10)],
+        ),
+    ),
+)
+def test_lru_update_existing_value(values: List[int], keys: List[int], capacity: int, new_value: int) -> None:
+    # Given
+    lru = LRU(capacity)
+
+    # When
+    for value, key in zip(values, keys):
+        lru.update(key, value)
+
+    lru.update(keys[-1], new_value)
+
+    # Then
+    assert lru.get(keys[-1]) == new_value
