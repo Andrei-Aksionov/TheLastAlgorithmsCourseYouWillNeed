@@ -35,7 +35,7 @@ from typing import Dict, List
 class TrieNode:
     char: str
     # if this node is an end char of the word
-    is_end: bool = False
+    is_word_end: bool = False
     # every node has from 0 to inf children
     children: Dict[str, "TrieNode"] = field(default_factory=dict)
 
@@ -47,9 +47,9 @@ class Trie:
     def insert(self, word: str) -> None:
         """Insert new word in the trie tree."""
 
-        # Time: O(h) because at worst we need to traverse the whole branch
-        # Space: O(h) at worst we need to insert all the chars
-        # h - height of the trie
+        # Time: O(n) because we need to iterate over all char of the inputted word
+        # Space: O(n) at worst we need to create TrieNodes and insert for all the chars
+        # n - length of the word to insert
 
         # start from the root of the trie
         node = self.root
@@ -66,7 +66,7 @@ class Trie:
                 node.children[char] = new_node
                 node = new_node
         # node with the final char should be marked so it's clear that this is the full word
-        node.is_end = True
+        node.is_word_end = True
 
     def find(self, prefix: str) -> List[str]:
         """Find all branches for the provided prefix.
@@ -75,9 +75,11 @@ class Trie:
         the output will be ["foo", "fool", "foolish"]
         """
 
-        # Time: O(n) at worst we need to return all children of the root recursively
-        # Space: O(h) stack will store the whole branch
-        # n - total number of nodes of the trie, h - height of the trie
+        # Time: O(n + nr) we need to iterate over the whole prefix + traverse all
+        # remaining nodes
+        # Space: O(h - n) stack will store the whole branch minus prefix
+        # n - total number of nodes of the trie, h - height of the trie,
+        # nr - remaining nodes
 
         node = self.root
 
@@ -88,7 +90,7 @@ class Trie:
 
         def traverse(node: TrieNode, prefix: str, words: List[str]) -> None:
             """Depth-first traversal of the trie."""
-            if node.is_end:
+            if node.is_word_end:
                 words.append(prefix + node.char)
 
             for child in node.children.values():
@@ -103,19 +105,19 @@ class Trie:
         """Deletes the prefix from the trie.
 
         This one is a bit trickier: if the last character doesn't have children we need to delete
-        all characters up until the next .is_end char.
+        all characters up until the next .is_word_end char.
 
         For example the trie contains: ["fo", "foo", "fool", "foolish"]
-        If we want to delete `foolish` we can simply mark `h` as .is_end=False, so it will not be returned with
+        If we want to delete `foolish` we can simply mark `h` as .is_word_end=False, so it will not be returned with
         `find` method, but it still will be in the memory. So we can delete nodes up until character `l` because
         it's the end of the longest word with the same prefix as our target.
         At the same time if we want to delete `foo` we just need to mark `o` as not the end character, otherwise
         we will loose ["fool", "foolish"]
         """
 
-        # Time: O(h) at worst we need to delete the whole branch of the trie
-        # Space: O(h) at worst the stack will store the whole branch
-        # h - height of the trie
+        # Time: O(n) we need to iterate over the whole prefix
+        # Space: O(n) stack will store the same number of nodes as chars in the prefix
+        # n - length of the prefix
 
         node = self.root
         # stack contains branch of the trie for the prefix
@@ -129,16 +131,16 @@ class Trie:
 
         # mark the last char as not the end in any case
         node = stack.pop()
-        node.is_end = False
+        node.is_word_end = False
 
         # if there other nodes after the current one - simply quit
         if len(node.children) > 1:
             return
 
         # if after the last character there is nothing we can remove every char
-        # until next is_end=True
+        # until next is_word_end=True
         while stack:
             node = stack.pop()
-            if node.is_end or len(node.children) > 1:
+            if node.is_word_end or len(node.children) > 1:
                 break
             node.children = {}
