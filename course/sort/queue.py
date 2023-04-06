@@ -9,11 +9,14 @@ class Node:
 
 
 class Queue:
-    # -----    -----    -----    -----
-    # | A | -> | B | -> | C | -> | D |
-    # -----    -----    -----    -----
-    #   ↑                          ↑
-    # head                        tail
+    """
+    -----    -----    -----    -----
+    | A | -> | B | -> | C | -> | D |
+    -----    -----    -----    -----
+      ↑                          ↑
+    head                        tail
+    """
+
     def __init__(self) -> None:
         self.head = self.tail = None
         self.length = 0

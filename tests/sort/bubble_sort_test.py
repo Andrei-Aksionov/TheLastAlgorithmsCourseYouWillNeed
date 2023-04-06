@@ -7,7 +7,7 @@ from course.sort.bubble_sort import bubble_sort
 
 
 @pytest.mark.sort
-def test_linear_search() -> None:
+def test_bubble_sort() -> None:
     # Given
     arr_unsorted = [9, 3, 7, 4, 69, 420, 42]
     arr_sorted = [3, 4, 7, 9, 42, 69, 420]
@@ -21,7 +21,7 @@ def test_linear_search() -> None:
 
 @pytest.mark.sort
 @pytest.mark.parametrize("arr", [random.sample(range(-100, 100), random.randint(1, 25)) for _ in range(10)])
-def test_linear_search_auto_tests(arr: List[int]) -> None:
+def test_bubble_sort_auto_tests(arr: List[int]) -> None:
     # Given
     arr_sorted = sorted(arr)
 

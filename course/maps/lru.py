@@ -1,17 +1,3 @@
-"""
-    Most Recently Used (MRU)                      Least Recently Used (LRU)
-      |                                           |
-      ⌄                                           ⌄
-    -----      -----      -----      -----      -----
-    | A | <--> | B | <--> | C | <--> | D | <--> | E |
-    -----      -----      -----      -----      -----
-      ^                    ^ ^         ^          ^
-      |                    | |         |          |
-     head               tail |         |         will be dropped with trim_cache()
-                             |         |         as it exceeds capacity
-                           length   capacity
-"""
-
 from typing import Optional
 
 from course.maps.dictionary import Dictionary
@@ -28,6 +14,26 @@ class Node:
 
 
 class LRU:
+    """
+    Most Recently Used (MRU)                      Least Recently Used (LRU)
+      |                                           |
+      ⌄                                           ⌄
+    -----      -----      -----      -----      -----
+    | A | <--> | B | <--> | C | <--> | D | <--> | E |
+    -----      -----      -----      -----      -----
+      ^                    ^ ^         ^          ^
+      |                    | |         |          |
+     head               tail |         |         will be dropped with trim_cache()
+                             |         |         as it exceeds capacity
+                           length   capacity
+    """
+
+    # For all operations it's the same time/space complexities
+    # Time: O(1) because we do map lookup + linking/unlinking node and it doesn't
+    # depend on the size of LRU cache
+    # Space: O(1) the sam as for time
+    # basically there are no loops or recursions
+
     def __init__(self, capacity: int = 10) -> None:
         self.length = 0
         self.capacity = capacity

@@ -5,7 +5,7 @@ from course.trees.binary_tree_traversal import pre_order_traversal
 from tests.trees.tree_examples import tree_1 as tree
 
 #############################################################
-################# Breadth First Search ######################
+################## Breadth First Search #####################
 #############################################################
 
 
@@ -36,7 +36,7 @@ def test_binary_tree_search_bfs_auto(needle: int) -> None:
 
 
 #############################################################
-################# Depth First Search ########################
+################### Depth First Search ######################
 #############################################################
 
 

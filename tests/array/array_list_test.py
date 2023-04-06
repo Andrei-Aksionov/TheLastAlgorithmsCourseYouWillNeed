@@ -217,3 +217,19 @@ def test_array_list_prepand_to_empty(numbers: List[int]) -> None:
     assert array_list.length == len(numbers)
     for idx in range(len(numbers)):
         assert array_list.get(idx) == numbers[-idx - 1]
+
+
+@pytest.mark.array
+@pytest.mark.parametrize("numbers", [random.sample(range(-100, 100), random.randint(1, 25)) for _ in range(10)])
+def test_array_list_pop(numbers: List[int]) -> None:
+    # Given
+    array_list = ArrayList(capacity=3, growth_value=3)
+
+    # When
+    for number in numbers:
+        array_list.append(number)
+
+    # Then
+    assert array_list.length == len(numbers)
+    for expected_number in numbers[::-1]:
+        assert array_list.pop() == expected_number

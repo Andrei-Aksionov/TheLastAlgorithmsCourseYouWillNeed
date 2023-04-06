@@ -1,32 +1,7 @@
 """
-Note: there are only two branches at max for each node simply because it's easier to draw :)
-Each node can have [0, +inf] nodes.
-
-            Root
-            / \
-           b   f
-          /     \
-         a      [o]
-        /        /\
-      [z]      [o] u
-               /    \
-             [l]     n
-             /        \
-            i          d - r - [y]
-           /          / \
-          s          e   a
-         /          /     \
-       [h]        [r]      t
-                            \
-                             i
-                              \
-                               o
-                                \
-                                [n]
-
-Legeng: [x] - end of the word
-
+Note: it's an optional algorithm that was explained in the course, but not implemented.
 """
+
 from dataclasses import dataclass, field
 from typing import Dict, List
 
@@ -41,6 +16,36 @@ class TrieNode:
 
 
 class Trie:
+    """
+
+    Note: there are only three branches at max for each node simply because it's easier to draw :)
+    Each node can have [0, +inf] children.
+
+                Root
+                / \
+               b   f
+              /     \
+             a      [o]
+            /        /\
+          [z]      [o] u
+                   /    \
+                 [l]     n
+                 /        \
+                i          d - r - [y]
+               /          / \
+              s          e   a
+             /          /     \
+           [h]        [r]      t
+                                \
+                                 i
+                                  \
+                                   o
+                                    \
+                                    [n]
+
+    Legeng: [x] - end of the word
+    """
+
     def __init__(self) -> None:
         self.root = TrieNode("")
 

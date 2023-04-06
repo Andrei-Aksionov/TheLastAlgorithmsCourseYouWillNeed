@@ -1,14 +1,13 @@
-# TODO: remake it as a adjacency list
 """
-          Graph                        Adjacency Matrix
+          Graph                        Adjacency Matrix         Adjacency List
 
            (10)                         0   1   2   3
-      [0] ➜  ➜  ➜ [1]                 ----|---|---|---|
-       ↑  ⬊  (5)   ↑                0 |  0  10   0   5
-   (7) ↑     ⬊     ↑ (1)            1 |  0   0   0   0
-       ↑   (2)   ⬊ ↑                2 |  7   0   0   0
-      [2] ←  ←  ← [3]               3 |  0   1   2   0
-
+      [0] ➜  ➜  ➜ [1]                 ----|---|---|---|         {
+       ↑  ⬊  (5)   ↑                0 |  0  10   0   5            0: [{"to": 1, "weight": 10}, {"to": 3, "weight": 5}],
+   (7) ↑     ⬊     ↑ (1)            1 |  0   0   0   0            1: [],
+       ↑   (2)   ⬊ ↑                2 |  7   0   0   0            2: [{"to": 0, "weight": 7}],
+      [2] ←  ←  ← [3]               3 |  0   1   2   0            3: [{"to": 1, "weight": 1}, {"to": 2, "weight": 2}],
+                                                                }
     Legend: [] - node
             () - weight
             ➜  - direction
@@ -29,7 +28,7 @@
             1: 0,
             3: 0,
         }
-    Out of all nodes for which distance was updated find unseen node with the smallest distance;
+    Out of all nodes for which distance was updated find an unseen node with the smallest distance;
     on the first iteration it will be 3
 
     Repeat the above until we mark all reachable nodes as seen or until we find our needle/sink
@@ -152,9 +151,6 @@ def dijkstra_list_shortest_path_min_heap(source: int, sink: int, arr: List[Graph
         # if we have already found the needle/sink
         if current_node == sink:
             break
-        # skip if the node was already visited
-        if seen[current_node]:
-            continue
         # don't forted to mark the node as visited
         seen[current_node] = True
 

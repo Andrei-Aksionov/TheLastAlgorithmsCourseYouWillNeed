@@ -9,11 +9,14 @@ class Node:
 
 
 class Stack:
-    # -----    -----    -----    -----
-    # | A | <- | B | <- | C | <- | D |
-    # -----    -----    -----    -----
-    #                              ↑
-    #                             head
+    """
+    -----    -----    -----    -----
+    | A | <- | B | <- | C | <- | D |
+    -----    -----    -----    -----
+                                 ↑
+                                head
+    """
+
     def __init__(self) -> None:
         self.head = None
         self.length = 0

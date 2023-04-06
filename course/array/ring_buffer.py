@@ -1,3 +1,7 @@
+"""
+Note: it's an optional algorithm that was explained in the course, but not implemented.
+"""
+
 from typing import Optional
 
 
@@ -39,6 +43,8 @@ class RingBuffer:
             return None
 
         value = self.data[self.tail % self.capacity]
+        # it's not necessary to set None instead of pushed value, but it helps
+        # for debugging (makes `data` less cluttered)
         self.data[self.tail % self.capacity] = None
         self.tail = self.tail - 1
         return value

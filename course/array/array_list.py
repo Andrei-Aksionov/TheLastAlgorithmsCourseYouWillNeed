@@ -1,4 +1,6 @@
 """
+Note: it's an optional algorithm that was explained in the course, but not implemented.
+
 In Python a regular List is essentially an ArrayList from Typescript.
 But for the sake of practicing algorithms let's pretend that this is not
 the case and implement the logic manually.
@@ -9,15 +11,21 @@ from typing import Optional
 
 
 class ArrayList:
-    # -----    -----    --------    --------
-    # | A | -> | B | -> | None | -> | None |
-    # -----    -----    --------    --------
-    #            ↑                      ↑
-    #          length                capacity
+    """
+    -----    -----    --------    --------
+    | A | -> | B | -> | None | -> | None |
+    -----    -----    --------    --------
+               ↑                      ↑
+             length                capacity
+    """
+
     def __init__(self, capacity: int, growth_value: int) -> None:
         self.array = [None] * capacity
         self.length = 0
         self.capacity = capacity
+        # when there is no space in the buffer to add new value
+        # a new array will be created with size of current one + growth_value
+        # and all values will be copied from current array into the new one
         self.growth_value = growth_value
 
     def get(self, idx: int) -> int:

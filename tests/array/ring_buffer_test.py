@@ -90,3 +90,30 @@ def test_ring_buffer_with_overwrite_capacity_auto(numbers: List[int], capacity: 
     # Then
     for expected_number in numbers[: -(capacity + 1) : -1]:
         assert buffer.pop() == expected_number
+
+
+@pytest.mark.array
+@pytest.mark.parametrize(
+    ("numbers", "capacity"),
+    list(
+        zip(
+            [random.sample(range(-100, 100), 25) for _ in range(10)],
+            [random.randint(3, 25) for _ in range(10)],
+        ),
+    ),
+)
+def test_ring_buffer_push_pop_push_auto(numbers: List[int], capacity: int) -> None:
+    # Given
+    buffer = RingBuffer(capacity=capacity)
+
+    # When
+    for number in numbers:
+        buffer.push(number)
+    for _ in numbers:
+        buffer.pop()
+    for number in numbers:
+        buffer.push(number)
+
+    # Then
+    for expected_number in numbers[: -(capacity + 1) : -1]:
+        assert buffer.pop() == expected_number

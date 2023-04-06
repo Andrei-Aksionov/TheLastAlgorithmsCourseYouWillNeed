@@ -9,16 +9,14 @@
 [![test](https://github.com/Andrei-Aksionov/TheLastAlgorithmsCourseYouWillNeed/actions/workflows/test.yaml/badge.svg)](https://github.com/Andrei-Aksionov/TheLastAlgorithmsCourseYouWillNeed/actions/workflows/test.yaml)
 
 ***
-<p align=center><img src="assets/readme/algorithms.png"></p>
-
-Have you heard about an awesome [algorithms course](https://frontendmasters.com/courses/algorithms/) on `FrontendMasters.com` presented by `ThePrimeagen`? If no, then you are missing a lot: it is well explained and presented in a clear and sometimes funny way (it's ThePrimeagen after all :smirk:) yet coveres all the basic in a deep enough manner.
-
-Here is a preview of the course (click on the image):
+*Click on the image to see video preview of the course* ⤵
 <div align="center">
       <a href="https://www.youtube.com/watch?v=Lwr3-doAgaI">
-         <img src="https://img.youtube.com/vi/Lwr3-doAgaI/0.jpg" style="width:50%;">
+         <img src="assets/readme/algorithms.png">
       </a>
 </div>
+
+Have you heard about an awesome [algorithms course](https://frontendmasters.com/courses/algorithms/) on `FrontendMasters.com` presented by `ThePrimeagen`? If no, then you are missing a lot: it is well explained and presented in a clear and sometimes funny way (it's ThePrimeagen after all :smirk:) yet coveres all the basic in a deep enough manner.
 
 Is it indeed the last algorithmic course you will ever need? Highly doubt about it. The course teaches you the basics, the rest you have to learn yourself by practicing.
 

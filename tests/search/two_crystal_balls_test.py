@@ -4,7 +4,9 @@ import pytest
 
 from course.search.two_crystal_balls import two_crystal_balls, two_crystal_balls_logn
 
+# ----------------------------------------------------------------
 # ----------------------- sqrt(n) solution -----------------------
+# ----------------------------------------------------------------
 
 
 @pytest.mark.search
@@ -34,7 +36,9 @@ def test_two_crystal_balls_not_found(size: int) -> None:
     assert result == -1
 
 
-# ----------------------- log(n) solution -----------------------
+# ----------------------------------------------------------------
+# ------------------------ log(n) solution -----------------------
+# ----------------------------------------------------------------
 
 
 @pytest.mark.search

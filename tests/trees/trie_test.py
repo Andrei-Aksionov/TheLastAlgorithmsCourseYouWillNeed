@@ -33,3 +33,21 @@ def test_trie() -> None:
 
     # check that another branch is not affected
     assert trie.find("b") == ["bar"]
+
+
+@pytest.mark.trie
+def test_not_found_prefix_return_empty_list() -> None:
+    # Given
+    trie = Trie()
+
+    # Then
+    assert trie.find("foo") == []
+
+
+@pytest.mark.trie
+def test_not_found_prefix_to_delete_return_none() -> None:
+    # Given
+    trie = Trie()
+
+    # Then
+    assert trie.delete("foo") is None

@@ -17,7 +17,7 @@ from course.search.binary_search import binary_search
         (69421, False),
     ],
 )
-def test_linear_search(target: Tuple[int, bool]) -> None:
+def test_binary_search(target: Tuple[int, bool]) -> None:
     # Given
     haystack = [1, 3, 4, 69, 71, 81, 90, 99, 420, 1337, 69420]
     needle, expected_result = target

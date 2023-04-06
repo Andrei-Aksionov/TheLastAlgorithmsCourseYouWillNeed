@@ -25,7 +25,7 @@ def test_quick_sort() -> None:
 
 @pytest.mark.quick_sort
 @pytest.mark.parametrize("numbers", [random.sample(range(-100, 100), random.randint(1, 25)) for _ in range(10)])
-def test_linear_search_auto_tests(numbers: List[int]) -> None:
+def test_quick_sort_auto_tests(numbers: List[int]) -> None:
     # Given
     numbers_sorted = sorted(numbers)
 
@@ -56,7 +56,7 @@ def test_quick_sort_pivot_middle() -> None:
 
 @pytest.mark.quick_sort
 @pytest.mark.parametrize("numbers", [random.sample(range(-100, 100), random.randint(1, 25)) for _ in range(10)])
-def test_linear_search_auto_tests_middle_pivot(numbers: List[int]) -> None:
+def test_quick_sort_auto_tests_middle_pivot(numbers: List[int]) -> None:
     # Given
     numbers_sorted = sorted(numbers)
 
