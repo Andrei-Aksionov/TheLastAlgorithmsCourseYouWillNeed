@@ -1,3 +1,8 @@
+"""
+To run tests: python -m heap
+"""
+
+
 class MinHeap:
     """
                                Min Heap

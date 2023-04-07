@@ -26,7 +26,18 @@ pytest = "~7.2.2"
 pytest-cov = "~4.0.0"
 
 [tool.pytest.ini_options]
-markers = ["search", "sort", "recursion", "quick_sort", "linked_list", "binary_tree", "heap", "graph", "map", "trie", "array"]
+markers = [
+  "arrays",
+  "doubly_linked_list",
+  "graphs",
+  "heap",
+  "maps",
+  "quick_sort",
+  "recursion",
+  "search",
+  "sort",
+  "trees",
+]
 python_files = "*_test.py"
 testpaths = ["tests"]
 

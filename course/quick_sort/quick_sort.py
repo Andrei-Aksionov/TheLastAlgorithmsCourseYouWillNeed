@@ -1,3 +1,7 @@
+"""
+To run tests: python -m quick_sort
+"""
+
 from typing import List
 
 # ------------------------------------------------------------------

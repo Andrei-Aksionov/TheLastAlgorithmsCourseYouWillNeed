@@ -12,7 +12,7 @@ from tests.graphs.graph_examples import (
 )
 
 
-@pytest.mark.graph
+@pytest.mark.graphs
 class TestAdjacencyMatrixAndList:
     ########################################################
     ################# Graph as a Matrix ####################

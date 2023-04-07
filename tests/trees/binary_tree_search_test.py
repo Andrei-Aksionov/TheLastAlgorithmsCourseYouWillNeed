@@ -6,7 +6,7 @@ from course.utils import is_empty_function
 from tests.trees.tree_examples import tree_1 as tree
 
 
-@pytest.mark.binary_tree
+@pytest.mark.trees
 class TestBinaryTreeSearch111:
     #############################################################
     ################## Breadth First Search #####################

@@ -12,7 +12,9 @@
             () - weight
             ➜  - direction
 
+To run tests: python -m graphs
 """
+
 from collections import deque
 from typing import List, Optional
 

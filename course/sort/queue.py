@@ -1,3 +1,7 @@
+"""
+To run tests: python -m sort
+"""
+
 from typing import Optional
 
 from course.data_structures import SinglyLinkedNode

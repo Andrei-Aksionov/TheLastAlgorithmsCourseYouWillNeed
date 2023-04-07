@@ -3,11 +3,11 @@ from typing import List
 
 import pytest
 
-from course.array.ring_buffer import RingBuffer
+from course.arrays.ring_buffer import RingBuffer
 from course.utils import is_empty_class
 
 
-@pytest.mark.array
+@pytest.mark.arrays
 @pytest.mark.skipif(is_empty_class(RingBuffer), reason="non implemented class RingBuffer")
 class TestRingBuffer:
     def test_ring_buffer_all_combined(self) -> None:

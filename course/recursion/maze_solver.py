@@ -1,3 +1,7 @@
+"""
+To run tests: python -m recursion
+"""
+
 from typing import List
 
 from course.data_structures import Point

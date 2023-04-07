@@ -48,6 +48,7 @@
     Iterate over the list of nodes from which we came from and return this path.
     For this examples the answer is: [0, 3, 1]
 
+To run tests: python -m graphs
 """
 
 import heapq

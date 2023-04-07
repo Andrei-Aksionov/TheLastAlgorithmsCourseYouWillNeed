@@ -10,7 +10,7 @@ from course.utils import is_empty_function
 from tests.graphs.graph_examples import graph_list_1, graph_list_2
 
 
-@pytest.mark.graph
+@pytest.mark.graphs
 class TestDijkstra:
     @pytest.mark.skipif(
         is_empty_function(dijkstra_list_shortest_path),

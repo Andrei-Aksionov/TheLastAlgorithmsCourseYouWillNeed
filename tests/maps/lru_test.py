@@ -7,7 +7,7 @@ from course.maps.lru import LRU
 from course.utils import is_empty_class
 
 
-@pytest.mark.map
+@pytest.mark.maps
 @pytest.mark.skipif(is_empty_class(LRU), reason="non implemented class LRU")
 class TestLRU:
     def test_lru_cache(self) -> None:

@@ -1,5 +1,7 @@
 """
 Note: it's an optional algorithm that was explained in the course, but not implemented.
+
+To run tests: python -m trees
 """
 
 from typing import List

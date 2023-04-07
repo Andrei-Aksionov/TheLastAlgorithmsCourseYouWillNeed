@@ -1,3 +1,7 @@
+"""
+To run tests: python -m trees
+"""
+
 from collections import deque
 from typing import Optional
 

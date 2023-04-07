@@ -1,3 +1,7 @@
+"""
+To run tests: python -m search
+"""
+
 from typing import List
 
 """

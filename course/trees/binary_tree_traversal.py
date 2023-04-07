@@ -1,3 +1,7 @@
+"""
+To run tests: python -m trees
+"""
+
 from typing import List, Optional
 
 from course.data_structures import BinaryTreeNode
