@@ -7,7 +7,7 @@ from tests.trees.tree_examples import tree_1 as tree
 
 
 @pytest.mark.binary_tree
-class TestBinaryTreeSearch:
+class TestBinaryTreeSearch111:
     #############################################################
     ################## Breadth First Search #####################
     #############################################################
@@ -25,9 +25,10 @@ class TestBinaryTreeSearch:
         assert result == expected_result
 
     @pytest.mark.skipif(is_empty_function(search_bfs), reason="non implemented function search_bfs")
+    @pytest.mark.skipif(is_empty_function(pre_order_traversal), reason="non implemented function pre_order_traversal")
     @pytest.mark.parametrize(
         "needle",
-        pre_order_traversal(tree),
+        [] if is_empty_function(pre_order_traversal) else pre_order_traversal(tree),
     )
     def test_binary_tree_search_bfs_auto(self, needle: int) -> None:
         # When
@@ -53,9 +54,10 @@ class TestBinaryTreeSearch:
         assert result == expected_result
 
     @pytest.mark.skipif(is_empty_function(search_dfs), reason="non implemented function search_dfs")
+    @pytest.mark.skipif(is_empty_function(pre_order_traversal), reason="non implemented function pre_order_traversal")
     @pytest.mark.parametrize(
         "needle",
-        pre_order_traversal(tree),
+        [] if is_empty_function(pre_order_traversal) else pre_order_traversal(tree),
     )
     def test_binary_tree_search_dfs_auto(self, needle: int) -> None:
         # When
