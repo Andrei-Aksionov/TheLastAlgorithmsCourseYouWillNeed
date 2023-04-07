@@ -2,17 +2,9 @@
 Note: it's an optional algorithm that was explained in the course, but not implemented.
 """
 
-from dataclasses import dataclass, field
-from typing import Dict, List
+from typing import List
 
-
-@dataclass
-class TrieNode:
-    char: str
-    # if this node is an end char of the word
-    is_word_end: bool = False
-    # every node has from 0 to inf children
-    children: Dict[str, "TrieNode"] = field(default_factory=dict)
+from course.data_structures import TrieNode
 
 
 class Trie:

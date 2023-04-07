@@ -1,11 +1,6 @@
-from dataclasses import dataclass
 from typing import List
 
-
-@dataclass
-class Point:
-    x: int
-    y: int
+from course.data_structures import Point
 
 
 def walk(

@@ -1,11 +1,6 @@
-from dataclasses import dataclass
 from typing import Optional
 
-
-@dataclass
-class Node:
-    value: int
-    prev: Optional["Node"] = None
+from course.data_structures import StackLinkedNode
 
 
 class Stack:
@@ -23,7 +18,7 @@ class Stack:
 
     def push(self, number: int) -> None:
         """Push element to the end of the stack."""
-        node = Node(number)
+        node = StackLinkedNode(number)
         self.length += 1
 
         # if it's an empty stack

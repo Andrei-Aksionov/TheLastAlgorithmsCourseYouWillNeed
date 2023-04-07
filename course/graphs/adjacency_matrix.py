@@ -14,8 +14,9 @@
 
 """
 from collections import deque
-from dataclasses import dataclass
 from typing import List, Optional
+
+from course.data_structures import GraphEdge
 
 
 def adjacency_matrix_bfs(graph: List[List[int]], source: int, needle: int) -> Optional[List[int]]:
@@ -84,12 +85,6 @@ def adjacency_matrix_bfs(graph: List[List[int]], source: int, needle: int) -> Op
 
     # The final result is [0, 3, 2]
     return [source] + out[::-1]
-
-
-@dataclass
-class GraphEdge:
-    to: int
-    weight: int
 
 
 def adjacency_list_dfs(graph: List[GraphEdge], source: int, needle: int) -> Optional[List[int]]:

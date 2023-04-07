@@ -51,14 +51,9 @@
 """
 
 import heapq
-from dataclasses import dataclass
 from typing import List
 
-
-@dataclass
-class GraphEdge:
-    to: int
-    weight: int
+from course.data_structures import GraphEdge
 
 
 def get_lowest_unvisited(seen: List[bool], distances: List[int]) -> int:

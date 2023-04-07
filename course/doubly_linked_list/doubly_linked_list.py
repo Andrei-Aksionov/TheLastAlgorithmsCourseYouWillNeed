@@ -1,12 +1,6 @@
-from dataclasses import dataclass
 from typing import Optional
 
-
-@dataclass
-class Node:
-    value: int
-    prev: Optional["Node"] = None
-    next: Optional["Node"] = None  # noqa: A003
+from course.data_structures import DoublyLinkedNode
 
 
 class LinkedList:
@@ -20,8 +14,8 @@ class LinkedList:
 
     def __init__(self) -> None:
         self.length = 0
-        self.head: Node = None
-        self.tail: Node = None
+        self.head: DoublyLinkedNode = None
+        self.tail: DoublyLinkedNode = None
 
     def get(self, idx: int) -> int:
         """Get a node's value at provided index."""
@@ -34,7 +28,7 @@ class LinkedList:
 
         ← B ⇿ C →  ==>  ← A ⇿ B ⇿ C →
         """
-        node = Node(item)
+        node = DoublyLinkedNode(item)
         self.length += 1
         # if it's an empty linked list
         if not (self.head and self.tail):
@@ -50,7 +44,7 @@ class LinkedList:
 
         ← A ⇿ B →  ==>  ← A ⇿ B ⇿ C →
         """
-        node = Node(item)
+        node = DoublyLinkedNode(item)
         self.length += 1
         # if it's an empty linked list
         if not (self.head and self.tail):
@@ -79,7 +73,7 @@ class LinkedList:
 
         current = self._get_node(idx)
 
-        node = Node(item)
+        node = DoublyLinkedNode(item)
         self.length += 1
         node.prev = current.prev
         node.next = current
@@ -112,7 +106,7 @@ class LinkedList:
 
         return self._remove_node(node)
 
-    def _traverse_linked_list(self, idx: int) -> Node:
+    def _traverse_linked_list(self, idx: int) -> DoublyLinkedNode:
         # if index is equal to the beginning or the end of the linked list
         # it means that there is no need to traverse, just return head or tail correspondingly
         if idx == 0:
@@ -132,11 +126,11 @@ class LinkedList:
 
         return node
 
-    def _get_node(self, idx: int) -> Node:
+    def _get_node(self, idx: int) -> DoublyLinkedNode:
         """Helper function: get node of the linked list at index."""
         return self._traverse_linked_list(idx)
 
-    def _remove_node(self, node: Node) -> int:
+    def _remove_node(self, node: DoublyLinkedNode) -> int:
         """Helper function: delete provided node and reassign `prev` and `next` links.
 
         ← A ⇿ B ⇿ C →  ==>  ← A ⇿ C →

@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from course.trees.binary_tree_node import BinaryTreeNode
+from course.data_structures import BinaryTreeNode
 
 """
 Let's use this tree as an example input for the algorithms below.

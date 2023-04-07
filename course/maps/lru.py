@@ -1,16 +1,7 @@
 from typing import Optional
 
+from course.data_structures import DoublyLinkedNode
 from course.maps.dictionary import Dictionary
-
-
-class Node:
-    def __init__(self, value: int, next: Optional["Node"] = None, prev: Optional["Node"] = None) -> None:  # noqa: A002
-        self.value = value
-        self.next = next
-        self.prev = prev
-
-    def __hash__(self) -> int:
-        return hash(self.value)
 
 
 class LRU:
@@ -47,7 +38,7 @@ class LRU:
         node = self.lookup.get(key)
         # if node doesn't exist - create one with the value and put it in the beginning
         if node is None:
-            node = Node(value)
+            node = DoublyLinkedNode(value)
             self._prepend(node)
             # as new node is added in case the length exceeds capacity we need to trim cache
             self._trim_cache()
@@ -59,7 +50,7 @@ class LRU:
             self._prepend(node)
             node.value = value
 
-    def get(self, key: int) -> Optional[Node]:
+    def get(self, key: int) -> Optional[DoublyLinkedNode]:
         """Return node's value if it can be accessed by the key, in other case - return None."""
         # check cache for existence
         node = self.lookup.get(key)
@@ -73,7 +64,7 @@ class LRU:
         # return the value we found or None if not exist
         return node.value
 
-    def _detach(self, node: Node) -> None:
+    def _detach(self, node: DoublyLinkedNode) -> None:
         # if there is a node in front
         if node.prev:
             node.prev.next = node.next
@@ -93,7 +84,7 @@ class LRU:
         # don't forget to update the length
         self.length -= 1
 
-    def _prepend(self, node: Node) -> None:
+    def _prepend(self, node: DoublyLinkedNode) -> None:
         self.length += 1
 
         # if it's just an empty cache

@@ -12,11 +12,11 @@ from typing import Optional
 
 class ArrayList:
     """
-    -----    -----    --------    --------
-    | A | -> | B | -> | None | -> | None |
-    -----    -----    --------    --------
-               ↑                      ↑
-             length                capacity
+    -----------------------------
+    |   A  |   B  | None | None |
+    -----------------------------
+               ↑             ↑
+             length       capacity
     """
 
     def __init__(self, capacity: int, growth_value: int) -> None:

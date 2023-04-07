@@ -1,7 +1,7 @@
 from collections import deque
 from typing import Optional
 
-from course.trees.binary_tree_node import BinaryTreeNode
+from course.data_structures import BinaryTreeNode
 
 
 def compare_bfs(a: BinaryTreeNode, b: BinaryTreeNode) -> bool:

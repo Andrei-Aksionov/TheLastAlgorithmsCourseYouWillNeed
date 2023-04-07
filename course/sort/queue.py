@@ -1,11 +1,6 @@
-from dataclasses import dataclass
 from typing import Optional
 
-
-@dataclass
-class Node:
-    value: int
-    next: Optional["Node"] = None  # noqa: A003
+from course.data_structures import SinglyLinkedNode
 
 
 class Queue:
@@ -23,7 +18,7 @@ class Queue:
 
     def enqueue(self, value: int) -> None:
         """Add element to the end of the queue."""
-        node = Node(value)
+        node = SinglyLinkedNode(value)
         self.length += 1
 
         # if it's an empty queue

@@ -1,4 +1,4 @@
-from course.graphs.adjacency_matrix import GraphEdge
+from course.data_structures import GraphEdge
 
 ########################################################
 ################# Graph as a Matrix ####################

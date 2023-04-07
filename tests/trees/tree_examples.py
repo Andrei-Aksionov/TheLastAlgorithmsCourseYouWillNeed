@@ -1,4 +1,4 @@
-from course.trees.binary_tree_node import BinaryTreeNode
+from course.data_structures import BinaryTreeNode
 
 """
 Trees side-by-side

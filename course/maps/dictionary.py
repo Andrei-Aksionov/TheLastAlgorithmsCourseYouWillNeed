@@ -21,6 +21,9 @@ class KeyValue:
         # to better understand hashing it will be implemented from scratch
         # of course in real world it's better to use builtin hash function
 
+        # example if key is a string
+        # basically just to show that the hashing function needs to return
+        # any size positive integer number
         if isinstance(self.key, str):
             return sum(map(ord, self.key))
         # if it's not a string rollback to a builtin hash function

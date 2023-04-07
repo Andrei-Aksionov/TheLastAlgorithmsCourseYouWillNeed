@@ -92,12 +92,11 @@ class MinHeap:
             parent_idx = self._parent(child_idx)
             parent_value = self.data[parent_idx]
             child_value = self.data[child_idx]
-            if parent_value > child_value:
-                self.data[parent_idx] = child_value
-                self.data[child_idx] = parent_value
-                child_idx = parent_idx
-            else:
+            if parent_value <= child_value:
                 break
+            self.data[parent_idx] = child_value
+            self.data[child_idx] = parent_value
+            child_idx = parent_idx
 
     def _heapify_down(self, parent_idx: int) -> None:
         """Move larger then parent value to the buttom.
@@ -134,13 +133,12 @@ class MinHeap:
             child_idx = left_idx if left_value < right_value else right_idx
             child_value = min(left_value, right_value)
 
-            if parent_value > child_value:
-                self.data[parent_idx] = child_value
-                self.data[child_idx] = parent_value
-                self._heapify_down(child_idx)
-                parent_idx = child_idx
-            else:
+            if parent_value <= child_value:
                 break
+            self.data[parent_idx] = child_value
+            self.data[child_idx] = parent_value
+            self._heapify_down(child_idx)
+            parent_idx = child_idx
 
     def _parent(self, idx: int) -> int:
         return (idx - 1) // 2
