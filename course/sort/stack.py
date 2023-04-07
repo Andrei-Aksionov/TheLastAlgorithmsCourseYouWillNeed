@@ -27,11 +27,9 @@ class Stack:
         self.length += 1
 
         # if it's an empty stack
-        if not self.head:
-            self.head = node
-        else:
+        if self.head:
             node.prev = self.head
-            self.head = node
+        self.head = node
 
     def pop(self) -> Optional[int]:
         """Pop element from the end of the stack (the last added element)."""
