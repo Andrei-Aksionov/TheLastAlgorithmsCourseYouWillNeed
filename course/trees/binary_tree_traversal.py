@@ -12,7 +12,7 @@ Let's use this tree as an example input for the algorithms below.
        5    15     30   100
         \         /  \
          7       29   45
-"""  # noqa: W605
+"""
 
 # Note: for all types of traversal:
 # Time: O(n) we need to visit all the nodes anyway

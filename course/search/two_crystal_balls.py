@@ -43,14 +43,14 @@ def two_crystal_balls_logn(breaks: List[bool]) -> int:
         middle = (left + right) // 2
         if breaks[middle]:
             # if it's already True, then the first True will be to the left
-            # [..., ..., True, True, True, ..., ...] # noqa: ERA001
+            # [..., ..., True, True, True, ..., ...]
             #                    ↑
             #                  middle
             last_known = middle
             right = middle - 1
         else:
             # in other case the first True is to the right
-            # [..., False, False, False, ..., ..., True, True] # noqa: ERA001
+            # [..., False, False, False, ..., ..., True, True]
             #                ↑
             #              middle
             left = middle + 1

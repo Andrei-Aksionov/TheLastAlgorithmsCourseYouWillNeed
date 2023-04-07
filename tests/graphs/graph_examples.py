@@ -36,7 +36,7 @@ graph_matrix_1 = [
    \   v      v        v
     >(2) --> (3) <----(6)
 
-"""  # noqa: W605
+"""
 
 graph_matrix_2 = [
     [0, 3, 1, 0, 0, 0, 0],
@@ -57,7 +57,7 @@ graph_matrix_2 = [
  (0)   | ------|------- |
    <\  v/      v        v
      > (2)<--->(3)<---->(6)
-"""  # noqa: W605
+"""
 
 graph_list_1 = [None] * 7
 
@@ -105,7 +105,7 @@ graph_list_2 = [None] * 7
  (0)    /------|------- |
     \   v      v        v
      >(2) --> (3) <----(6)
-"""  # noqa: W605
+"""
 
 graph_list_2[0] = [
     GraphEdge(to=1, weight=3),

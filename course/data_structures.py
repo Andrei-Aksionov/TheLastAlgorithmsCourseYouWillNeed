@@ -23,7 +23,7 @@ class SinglyLinkedNode:
     def __init__(
         self,
         value: int,
-        next: Optional["SinglyLinkedNode"] = None,  # noqa: A002
+        next: Optional["SinglyLinkedNode"] = None,
     ) -> None:
         self.value = value
         self.next = next
@@ -37,7 +37,7 @@ class DoublyLinkedNode(SinglyLinkedNode):
         self,
         value: int,
         prev: Optional["DoublyLinkedNode"] = None,
-        next: Optional["DoublyLinkedNode"] = None,  # noqa: A002
+        next: Optional["DoublyLinkedNode"] = None,
     ) -> None:
         super().__init__(value, next)
         self.prev = prev

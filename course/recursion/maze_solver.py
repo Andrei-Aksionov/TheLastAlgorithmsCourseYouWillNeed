@@ -65,7 +65,7 @@ def draw_path(maze: List[List[str]], path: List[Point]) -> List[str]:
             raise ValueError(f"It's not an empty point in the maze: {point}")
         maze[point.y][point.x] = "*"
 
-    print("\n".join(["".join(row) for row in maze]))  # noqa: T201
+    print("\n".join(["".join(row) for row in maze]))
 
 
 if __name__ == "__main__":

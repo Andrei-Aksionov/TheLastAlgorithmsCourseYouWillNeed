@@ -28,7 +28,7 @@ class MinHeap:
     left          right
     child         child
 
-    """  # noqa: W605
+    """
 
     def __init__(self) -> None:
         self.data = []

@@ -13,7 +13,7 @@ def binary_search(haystack: List[int], needle: int) -> bool:
         v = haystack[m]
         if v == needle:
             return True
-        elif v > needle: # noqa: RET505
+        elif v > needle:
             hi = m
         else:
             lo = m + 1
