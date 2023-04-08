@@ -1,5 +1,5 @@
 """
-To run tests: python -m sort
+To run tests: pytest -m sort
 """
 
 from typing import Optional
@@ -22,6 +22,12 @@ class Stack:
 
     def push(self, number: int) -> None:
         """Push element to the end of the stack."""
+
+        # Time: O(1) no matter what the size of the linked list adding new node
+        #   to the end is always constant
+        # Space: O(1) each time we just need to allocate a space for a single node
+        #   no matter what's the size of the linked list
+
         node = StackLinkedNode(number)
         self.length += 1
 
@@ -32,6 +38,11 @@ class Stack:
 
     def pop(self) -> Optional[int]:
         """Pop element from the end of the stack (the last added element)."""
+
+        # Time: O(1) no matter what the size of the linked list unlinkage of the last
+        #   node is always constant
+        # Space: O(1) no new memory is created
+
         # if it's an empty stack
         if not self.head:
             return None
@@ -46,4 +57,8 @@ class Stack:
 
     def peek(self) -> Optional[int]:
         """Show value of the element at the end of the stack without modifying the stack."""
+
+        # Time: O(1) accessing value by link
+        # Space: O(1) no new space is created
+
         return self.head.value if self.head else None

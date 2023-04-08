@@ -1,7 +1,7 @@
 """
 Note: it's an optional algorithm that was explained in the course, but not implemented.
 
-To run tests: python -m trees
+To run tests: pytest -m trees
 """
 
 from typing import List
@@ -46,7 +46,7 @@ class Trie:
     def insert(self, word: str) -> None:
         """Insert new word in the trie tree."""
 
-        # Time: O(n) because we need to iterate over all char of the inputted word
+        # Time: O(n) because we need to iterate over all chars of the inputted word
         # Space: O(n) at worst we need to create TrieNodes and insert for all the chars
         # n - length of the word to insert
 

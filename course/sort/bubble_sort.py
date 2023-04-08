@@ -1,12 +1,13 @@
 """
-To run tests: python -m sort
+To run tests: pytest -m sort
 """
 
 from typing import List
 
 
 def bubble_sort(arr: List[int]) -> List[int]:
-    # O(n^2) time | O(1) space
+    # Time: O(n^2) as for each element we need to traverse n times
+    # Space: O(1) as no extra space is used, all is done inplace
 
     # each time one largest value will be moved to the right
     for i in range(len(arr)):

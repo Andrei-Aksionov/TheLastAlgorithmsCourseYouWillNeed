@@ -1,13 +1,16 @@
 """
-To run tests: python -m search
+To run tests: pytest -m search
 """
 
 from typing import List
 
 
 def two_crystal_balls(breaks: List[bool]) -> int:
-    # O(sqrtN) time | O(1) space
-    # but for me it looks more like O(n/sqrtN + sqrtN) time
+    # Time: O(sqrt(n)) as it was said in the video
+    #   but for me it more like O(n/sqrt(n) + sqrt(n))
+    #   because we first need to do n/sqrt(n) steps, go back one n/sqrt(n) step
+    #   an iterate at worst sqrt(n); I don't see how we can drop the first term
+    # Space: O(1) no extra storage is used
 
     # find size of the jump (sqrt of the list)
     jump_amount = int(len(breaks) ** 0.5)
@@ -38,7 +41,8 @@ def two_crystal_balls(breaks: List[bool]) -> int:
 # which is better than sqrtN since it grows slower
 # https://stackoverflow.com/questions/42038294/is-complexity-ologn-equivalent-to-osqrtn
 def two_crystal_balls_logn(breaks: List[bool]) -> int:
-    # O(logN) time | O(1) space
+    # Time: O(log(n)) each time we divide `breaks` by a factor of 2
+    # Space: O(1) no extra storage is used
 
     left, right = 0, len(breaks) - 1
     last_known = -1  # contains last time we saw True value

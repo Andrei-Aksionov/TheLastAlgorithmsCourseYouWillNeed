@@ -48,7 +48,7 @@
     Iterate over the list of nodes from which we came from and return this path.
     For this examples the answer is: [0, 3, 1]
 
-To run tests: python -m graphs
+To run tests: pytest -m graphs
 """
 
 import heapq
@@ -59,6 +59,9 @@ from course.data_structures import GraphEdge
 
 def get_lowest_unvisited(seen: List[bool], distances: List[int]) -> int:
     """Return an index of the node with the lowest distance."""
+
+    # Time: O(V) as we need to check all nodes of the graph
+    # Space: O(1) no external storage is used
 
     lowest_distance_idx = -1
     lowest_distance = float("inf")

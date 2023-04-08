@@ -1,5 +1,5 @@
 """
-To run tests: python -m trees
+To run tests: pytest -m trees
 """
 
 from collections import deque

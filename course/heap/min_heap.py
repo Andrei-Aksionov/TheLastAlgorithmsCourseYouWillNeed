@@ -1,5 +1,5 @@
 """
-To run tests: python -m heap
+To run tests: pytest -m heap
 """
 
 
@@ -35,18 +35,19 @@ class MinHeap:
 
     """
 
+    # Note: time and space complexities are the same for:
+    #   - insert/delete
+    #   - heapify_up/heapify_down
+    # Time: O(logn) because the structure is a complete tree,
+    # which means that it's balanced
+    # Space: O(1) for iterative solution, O(logn) for recursive
+
     def __init__(self) -> None:
         self.data = []
         self.length = 0
 
     def insert(self, value: int) -> None:
         "Insert the new value into the min heap."
-        # Note: time and space complexities are the same for:
-        #   - insert/delete
-        #   - heapify_up/heapify_down
-        # Time: O(logn) because the structure is a complete tree,
-        # which means that it's balanced
-        # Space: O(1) for iterative solution, O(logn) for recursive
 
         # after adding the new value to the end of the heap
         # we need to find where it belongs in the MinHeap

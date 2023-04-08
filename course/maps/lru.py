@@ -1,5 +1,5 @@
 """
-To run tests: python -m maps
+To run tests: pytest -m maps
 """
 
 from typing import Optional

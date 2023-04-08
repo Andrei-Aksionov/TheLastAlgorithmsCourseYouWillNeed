@@ -12,7 +12,7 @@
             () - weight
             ➜  - direction
 
-To run tests: python -m graphs
+To run tests: pytest -m graphs
 """
 
 from collections import deque

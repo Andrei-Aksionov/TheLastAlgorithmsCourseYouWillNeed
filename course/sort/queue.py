@@ -1,5 +1,5 @@
 """
-To run tests: python -m sort
+To run tests: pytest -m sort
 """
 
 from typing import Optional
@@ -22,6 +22,12 @@ class Queue:
 
     def enqueue(self, value: int) -> None:
         """Add element to the end of the queue."""
+
+        # Time: O(1) no matter what the size of the linked list adding new node
+        #   to the end is always constant
+        # Space: O(1) each time we just need to allocate a space for a single node
+        #   no matter what's the size of the linked list
+
         node = SinglyLinkedNode(value)
         self.length += 1
 
@@ -34,6 +40,11 @@ class Queue:
 
     def dequeue(self) -> Optional[int]:
         """Pop the first element of the queue."""
+
+        # Time: O(1) no matter what the size of the linked list unlinkage of the first
+        #   node is always constant
+        # Space: O(1) no new memory is created
+
         # if it's an empty queue
         if not self.head:
             return None
@@ -53,4 +64,8 @@ class Queue:
 
     def peek(self) -> Optional[int]:
         """Show what value will be dequeued without changing queue."""
+
+        # Time: O(1) accessing value by link
+        # Space: O(1) no new space is created
+
         return self.head.value if self.head else None

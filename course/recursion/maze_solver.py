@@ -1,5 +1,5 @@
 """
-To run tests: python -m recursion
+To run tests: pytest -m recursion
 """
 
 from typing import List
@@ -37,6 +37,8 @@ def walk(
     path.append(current)
 
     # recursion
+    # since the loop below isn't affected by the path size (it's always 4 loops at worst)
+    # time complexity is O(1)
     for shift_x, shift_y in ((0, 1), (1, 0), (0, -1), (-1, 0)):  # up -> right -> down -> left
         new_current = Point(current.x + shift_x, current.y + shift_y)
         if walk(maze, wall, new_current, end, seen, path):
@@ -50,8 +52,8 @@ def walk(
 
 
 def maze_solver(maze: List[List[str]], wall: str, start: Point, end: Point) -> List[Point]:
-    # O(n) time | O(n) space
-    # O(n) space because of the recursion: need to store state in the stack for each step
+    # Time: O(n) as we need to traverse over all point in worst case
+    # Space: O(1) as we reuse the same lists (seen and path) in all steps of recursion
     seen = [[False] * len(maze[0]) for _ in range(len(maze))]
     path = []
 

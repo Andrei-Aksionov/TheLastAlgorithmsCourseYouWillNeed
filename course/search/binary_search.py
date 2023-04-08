@@ -1,5 +1,5 @@
 """
-To run tests: python -m search
+To run tests: pytest -m search
 """
 
 from typing import List
@@ -26,7 +26,8 @@ def binary_search(haystack: List[int], needle: int) -> bool:
 
 
 def binary_search(haystack: List[int], needle: int) -> bool:
-    # O(logn) time | O(1) space
+    # Time: O(logn) each time we split haystack by a factor of 2
+    # Space: O(1) no extra storage is used
 
     left = 0
     right = len(haystack) - 1

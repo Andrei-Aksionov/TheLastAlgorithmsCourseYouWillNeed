@@ -5,7 +5,7 @@ In Python a regular List is essentially an ArrayList from Typescript.
 But for the sake of practicing algorithms let's pretend that this is not
 the case and implement the logic manually.
 
-To run tests: python -m arrays
+To run tests: pytest -m arrays
 """
 
 
@@ -31,18 +31,26 @@ class ArrayList:
         self.growth_value = growth_value
 
     def get(self, idx: int) -> int:
+        # Time: O(1)
+        # Space: O(1)
         if idx >= self.length:
             raise ValueError(f"Index out of bounds: limit is {self.length - 1}")
         return self.array[idx]
 
     def append(self, value: int) -> None:
         """Append a value to the end of the array."""
+        # Time: O(n) if there is a buffer then O(1), but if not O(n)
+        #   since we need to create new array of bigger size and copy everything
+        #   from old one into a new one
+        # Space: O(n) the same as above
         self.update_sizing()
         self.array[self.length] = value
         self.length += 1
 
     def prepend(self, value: int) -> None:
         """Add value to the beginning of the array."""
+        # Time: O(n) move all elements by 1 element to the right to make a free space
+        # Space: O(n) if there is no buffer we need to create a new bigger array and copy into it
         self.insert(value, 0)
 
     def insert(self, value: int, pos: int) -> None:

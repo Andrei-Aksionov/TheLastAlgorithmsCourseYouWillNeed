@@ -1,5 +1,5 @@
 """
-To run tests: python -m quick_sort
+To run tests: pytest -m quick_sort
 """
 
 from typing import List
@@ -10,7 +10,9 @@ from typing import List
 
 
 def quick_sort(numbers: List[int]) -> List[int]:
-    # O(nlogn) - O(n^2) time | O(nlogn) space
+    # Time: O(nlogn) sorting n elements logn times
+    # Space: O(nlogn) because stack will stores all elements on logn level,
+    # but since it's done inplace, no extra space is used so as a result O(1) space
 
     def partition(numbers: List[int], low: int, high: int) -> int:
         # input: -> [9, 8, 1, 3, 5] <-
@@ -56,7 +58,9 @@ def quick_sort(numbers: List[int]) -> List[int]:
 
 
 def quick_sort_middle_pivot(numbers: List[int]) -> List[int]:
-    # O(nlogn) time | O(nlogn) space
+    # Time: O(nlogn) sorting n elements logn times
+    # Space: O(nlogn) because stack will stores all elements on logn level,
+    # but since it's done inplace, no extra space is used so as a result O(1) space
 
     def quick_sort_recursive(numbers: List[int], left: int, right: int) -> List[int]:
         i, j = left, right
