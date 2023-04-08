@@ -13,7 +13,7 @@ def bubble_sort(arr: List[int]) -> List[int]:
     for i in range(len(arr)):
         # -1 because we check `j + 1`
         # -i: each time we move the largest values to the right and no need to process them,
-        # so check values until that are already moved
+        #   so check values until that are already moved
         for j in range(len(arr) - 1 - i):
             # larger value should be moved to the right
             if arr[j] > arr[j + 1]:

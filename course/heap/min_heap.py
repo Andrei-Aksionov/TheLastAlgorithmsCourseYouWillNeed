@@ -17,15 +17,15 @@ class MinHeap:
           /                                   /
          106                                 7
 
+    Indices: [0,  1,  2,   3,   4,  5,   6,   7  ]
     Values:  [50, 71, 100, 101, 80, 200, 105, 106]
-    Indices: [0,  1,  2,   3,   4,  5,   6,   7]
 
           parent
             |
         [(i-1)/2]
             |
           _____
-          |   |
+          | i |
           -----
         /       \
       2i+1     2i+2
@@ -38,8 +38,8 @@ class MinHeap:
     # Note: time and space complexities are the same for:
     #   - insert/delete
     #   - heapify_up/heapify_down
-    # Time: O(logn) because the structure is a complete tree,
-    # which means that it's balanced
+    # Time: O(logn) because we need to traverse the whole height of the heap at worst
+    # and the structure is a complete tree which means that it's balanced
     # Space: O(1) for iterative solution, O(logn) for recursive
 
     def __init__(self) -> None:

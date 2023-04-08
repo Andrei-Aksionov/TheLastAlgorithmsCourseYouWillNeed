@@ -9,8 +9,10 @@ from course.data_structures import BinaryTreeNode
 
 
 def compare_bfs(a: BinaryTreeNode, b: BinaryTreeNode) -> bool:
+    # Note: it's an optional algorithm and was not implemented in the video.
+
     # Time: O(hn) because we need to compare at worst n/2+1 elements at h levels
-    # Note: n/2+1 for perfectly balanced binary tree and 1 - for extremely unbalanced
+    #   Note: n/2+1 for a perfectly balanced binary tree and 1 - for an extremely unbalanced
     # Space: O(n) because at worst we need to store n/2+1 elements (for each tree)
     def populate_with_children(queue: deque) -> deque:
         node = queue.popleft()
@@ -43,7 +45,7 @@ def compare_dfs(a: Optional[BinaryTreeNode], b: Optional[BinaryTreeNode]) -> boo
     # Time: O(n) because we need to traverse all nodes at worst
     # Space: O(h) because we traverse as many steps as deep is the tree
     # Note: n - number of elements of the smallest tree, h - height of the smallest tree
-    # h ranges from n for an extremely unbalanced tree and logn - for perfectly balanced
+    # h ranges from n for an extremely unbalanced tree and logn - for a perfectly balanced
 
     # compare shape/structure
     if a is None and b is None:

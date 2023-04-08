@@ -25,8 +25,7 @@ class LinkedList:
         """Get a node's value at provided index."""
 
         # Time: O(n) at worst we need to iterate over all linked nodes
-        # Space: O(1) no matter how many steps of iterations has to be done
-        #   memory consumption is the same
+        # Space: O(1) no matter how many steps of iterations has to be done memory consumption is the same
 
         if idx > self.length:
             raise ValueError(f"You are trying to get at idx={idx}, but the number of nodes is {self.length}")

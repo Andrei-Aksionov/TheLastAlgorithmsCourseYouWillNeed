@@ -23,7 +23,7 @@ class KeyValue:
 
         # example if key is a string
         # basically just to show that the hashing function needs to return
-        # any size positive integer number
+        # a positive integer number of any size
         if isinstance(self.key, str):
             return sum(map(ord, self.key))
         # if it's not a string rollback to a builtin hash function
@@ -49,11 +49,10 @@ class Dictionary:
             a value to return if the specified key does not exist.
         """
 
-        key_value = KeyValue(key)
-        bucket = self.buckets[key_value.hash % self.size]
-        for key_value in bucket:
-            if key_value.key == key:
-                return key_value.value
+        bucket = self.buckets[KeyValue(key).hash % self.size]
+        for bucket_key_value in bucket:
+            if bucket_key_value.key == key:
+                return bucket_key_value.value
         return default
 
     def __getitem__(self, key: object) -> object:

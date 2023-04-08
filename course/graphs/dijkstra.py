@@ -147,7 +147,7 @@ def dijkstra_list_shortest_path_min_heap(source: int, sink: int, arr: List[Graph
         # we had to traverse over all nodes O(n)
         # now with help of MinHeap we can do it in O(1) because the smallest distance
         # node is in the top of MinHeap
-        # with combination of pushing to MinHeap it reduces time complexity from O(n) -> O(logn)
+        # with combination of pushing to MinHeap it reduces overall time complexity from O(n) -> O(logn)
         current_distance, current_node = heapq.heappop(current_distances)
         # if we have already found the needle/sink
         if current_node == sink:

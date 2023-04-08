@@ -8,8 +8,10 @@ from typing import List
 def two_crystal_balls(breaks: List[bool]) -> int:
     # Time: O(sqrt(n)) as it was said in the video
     #   but for me it more like O(n/sqrt(n) + sqrt(n))
-    #   because we first need to do n/sqrt(n) steps, go back one n/sqrt(n) step
+    #   because we first need to do n/sqrt(n) steps, go back one  step
     #   an iterate at worst sqrt(n); I don't see how we can drop the first term
+    #   as it's not guaranteed the the number of steps is smaller than the step size
+    #   or vise-versa
     # Space: O(1) no extra storage is used
 
     # find size of the jump (sqrt of the list)
@@ -20,12 +22,13 @@ def two_crystal_balls(breaks: List[bool]) -> int:
         if breaks[i]:
             break
 
-    # when we find True value, that means that the first True value is in the
+    # if we found a True value that means that the first True value is in the
     # current sqrt-size block. Now we need to go back (to the beginning of the block)
     # and iterate over the whole block until we find the first True value
 
     # go back sqrt-size items back only if we found True value
-    # if not - no necessity to move
+    # if not - no necessity to move since the first True value
+    # is somewhere further
     if breaks[i]:
         i = max(0, i - jump_amount)
 

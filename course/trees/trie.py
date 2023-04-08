@@ -47,7 +47,7 @@ class Trie:
         """Insert new word in the trie tree."""
 
         # Time: O(n) because we need to iterate over all chars of the inputted word
-        # Space: O(n) at worst we need to create TrieNodes and insert for all the chars
+        # Space: O(n) at worst we need to create n TrieNodes and insert for all the chars
         # n - length of the word to insert
 
         # start from the root of the trie
@@ -101,7 +101,7 @@ class Trie:
         return words
 
     def delete(self, prefix: str) -> None:
-        """Deletes the prefix from the trie.
+        """Delete the prefix from the trie.
 
         This one is a bit trickier: if the last character doesn't have children we need to delete
         all characters up until the next .is_word_end char.
@@ -128,11 +128,11 @@ class Trie:
             node = node.children[char]
             stack.append(node)
 
-        # mark the last char as not the end in any case
+        # mark the last char as not the end of a word
         node = stack.pop()
         node.is_word_end = False
 
-        # if there other nodes after the current one - simply quit
+        # if there are other nodes after the current one - simply quit
         if len(node.children) > 1:
             return
 

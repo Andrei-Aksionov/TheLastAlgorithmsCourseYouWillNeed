@@ -25,7 +25,7 @@ class LRU:
 
     # For all operations it's the same time/space complexities
     # Time: O(1) because we do map lookup + linking/unlinking node and it doesn't
-    # depend on the size of LRU cache
+    #   depend on the size of LRU cache
     # Space: O(1) the sam as for time
     # basically there are no loops or recursions
 
@@ -44,8 +44,9 @@ class LRU:
         if node is None:
             node = DoublyLinkedNode(value)
             self._prepend(node)
-            # as new node is added in case the length exceeds capacity we need to trim cache
+            # after the new node is added we need to trim cache in case the length exceeds capacity
             self._trim_cache()
+            # and update lookup tables
             self.lookup[key] = node
             self.reverse_lookup[node] = key
         else:
@@ -89,6 +90,7 @@ class LRU:
         self.length -= 1
 
     def _prepend(self, node: DoublyLinkedNode) -> None:
+        # don't forget to update the length
         self.length += 1
 
         # if it's just an empty cache
@@ -108,7 +110,6 @@ class LRU:
         node = self.tail
         # unlink the last node
         self._detach(node)
-
         # cleanup lookup tables
         key = self.reverse_lookup.get(node)
         self.lookup.pop(key)

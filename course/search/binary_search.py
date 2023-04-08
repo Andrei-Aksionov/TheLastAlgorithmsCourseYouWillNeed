@@ -5,7 +5,7 @@ To run tests: pytest -m search
 from typing import List
 
 """
-This implementation reflects of what was shown in the video, only in Python.
+This implementation reflects what was shown in the video, only in Python.
 I personally not a huge fun of it, that's why it's commented out
 
 def binary_search(haystack: List[int], needle: int) -> bool:

@@ -61,7 +61,12 @@ class BinaryTreeNode:
 
 
 class TrieNode:
-    def __init__(self, char: str, children: Dict[str, "TrieNode"] = None, is_word_end: bool = False) -> None:
+    def __init__(
+        self,
+        char: str,
+        children: Dict[str, "TrieNode"] = None,
+        is_word_end: bool = False,
+    ) -> None:
         self.char = char
         # every node has from 0 to inf children
         self.children = children or {}

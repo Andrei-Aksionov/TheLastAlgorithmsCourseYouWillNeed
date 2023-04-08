@@ -38,6 +38,7 @@ class RingBuffer:
     def get(self, idx: int) -> Optional[int]:
         # Time: O(1)
         # Space: O(1)
+
         if idx >= self.capacity:
             raise ValueError(f"idx should not be larger or equal to capacity of {self.capacity}")
         if idx < 0:
@@ -49,6 +50,7 @@ class RingBuffer:
     def push(self, value: int) -> None:
         # Time: O(1) 'cause we just need to access spot by index and write into it
         # Space: O(1) no new storage is created, new value is written on top of existing one
+
         self.tail += 1
         if self.tail >= self.capacity:
             self.head += 1
@@ -58,6 +60,7 @@ class RingBuffer:
         # Time: O(1) no matter what the size of the buffer we just need to access by
         #   index the last item, rewrite it as None and return deleted value
         # Space: O(1) no new space is created, all is done in-place
+
         if self.tail < 0:
             return None
 
