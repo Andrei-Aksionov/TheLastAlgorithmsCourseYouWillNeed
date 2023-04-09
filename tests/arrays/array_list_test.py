@@ -3,11 +3,11 @@ from typing import List
 
 import pytest
 
-from course.array.array_list import ArrayList
+from course.arrays.array_list import ArrayList
 from course.utils import is_empty_class
 
 
-@pytest.mark.array
+@pytest.mark.arrays
 @pytest.mark.skipif(is_empty_class(ArrayList), reason="non implemented class ArrayList")
 class TestArrayList:
     def test_array_list_all_combined(self) -> None:

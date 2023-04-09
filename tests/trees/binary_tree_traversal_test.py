@@ -9,7 +9,7 @@ from course.utils import is_empty_function
 from tests.trees.tree_examples import tree_1 as tree
 
 
-@pytest.mark.binary_tree
+@pytest.mark.trees
 class TestBinaryTreeTraversal:
     @pytest.mark.skipif(is_empty_function(pre_order_traversal), reason="non implemented function pre_order_traversal")
     def test_binary_tree_pre_order_traversal(self) -> None:

@@ -1,6 +1,7 @@
 import pytest
 
-from course.recursion.maze_solver import Point, maze_solver
+from course.data_structures import Point
+from course.recursion.maze_solver import maze_solver
 from course.utils import is_empty_function
 
 

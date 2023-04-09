@@ -1,11 +1,10 @@
-from dataclasses import dataclass
+"""
+To run tests: pytest -m recursion
+"""
+
 from typing import List
 
-
-@dataclass
-class Point:
-    x: int
-    y: int
+from course.data_structures import Point
 
 
 def walk(
@@ -16,6 +15,10 @@ def walk(
     seen: List[List[bool]],
     path: List[Point],
 ) -> bool:
+    # Time: O(n) as we need to walk over all points of the maze
+    # Space: O(1) seen/path data is reused across recursive calls and the rest
+    #   doesn't depend on the size of the maze
+
     # --- Base case ---
     # off the map
     if any((current.x < 0, current.x >= len(maze[0]), current.y < 0, current.y >= len(maze))):
@@ -34,16 +37,18 @@ def walk(
 
     # --- Recursion ---
     seen[current.y][current.x] = True
-    # pre
+    # pre-recursion step
     path.append(current)
 
-    # recursion
+    # recursion itself
+    # since the loop below isn't affected by the path size (it's always 4 loops at worst)
+    # time complexity is O(1)
     for shift_x, shift_y in ((0, 1), (1, 0), (0, -1), (-1, 0)):  # up -> right -> down -> left
         new_current = Point(current.x + shift_x, current.y + shift_y)
         if walk(maze, wall, new_current, end, seen, path):
             return True
 
-    # post
+    # post-recursion step
     # pop if the path led to a dead end
     path.pop()
 
@@ -51,8 +56,8 @@ def walk(
 
 
 def maze_solver(maze: List[List[str]], wall: str, start: Point, end: Point) -> List[Point]:
-    # O(n) time | O(n) space
-    # O(n) space because of the recursion: need to store state in the stack for each step
+    # Time: O(n) as we need to traverse over all point in worst case
+    # Space: O(n) seen and path are the same size as the maze (at worst)
     seen = [[False] * len(maze[0]) for _ in range(len(maze))]
     path = []
 
@@ -70,7 +75,7 @@ def draw_path(maze: List[List[str]], path: List[Point]) -> List[str]:
             raise ValueError(f"It's not an empty point in the maze: {point}")
         maze[point.y][point.x] = "*"
 
-    print("\n".join(["".join(row) for row in maze]))  # noqa: T201
+    print("\n".join(["".join(row) for row in maze]))
 
 
 if __name__ == "__main__":

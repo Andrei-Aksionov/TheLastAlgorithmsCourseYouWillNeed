@@ -4,7 +4,7 @@ from course.trees.trie import Trie
 from course.utils import is_empty_class
 
 
-@pytest.mark.trie
+@pytest.mark.trees
 @pytest.mark.skipif(is_empty_class(Trie), reason="non implemented class Trie")
 class TestTrie:
     def test_trie(self) -> None:

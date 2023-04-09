@@ -1,3 +1,8 @@
+"""
+To run tests: pytest -m heap
+"""
+
+
 class MinHeap:
     """
                                Min Heap
@@ -12,15 +17,15 @@ class MinHeap:
           /                                   /
          106                                 7
 
+    Indices: [0,  1,  2,   3,   4,  5,   6,   7  ]
     Values:  [50, 71, 100, 101, 80, 200, 105, 106]
-    Indices: [0,  1,  2,   3,   4,  5,   6,   7]
 
           parent
             |
         [(i-1)/2]
             |
           _____
-          |   |
+          | i |
           -----
         /       \
       2i+1     2i+2
@@ -28,7 +33,14 @@ class MinHeap:
     left          right
     child         child
 
-    """  # noqa: W605
+    """
+
+    # Note: time and space complexities are the same for:
+    #   - insert/delete
+    #   - heapify_up/heapify_down
+    # Time: O(logn) because we need to traverse the whole height of the heap at worst
+    # and the structure is a complete tree which means that it's balanced
+    # Space: O(1) for iterative solution, O(logn) for recursive
 
     def __init__(self) -> None:
         self.data = []
@@ -36,12 +48,6 @@ class MinHeap:
 
     def insert(self, value: int) -> None:
         "Insert the new value into the min heap."
-        # Note: time and space complexities are the same for:
-        #   - insert/delete
-        #   - heapify_up/heapify_down
-        # Time: O(logn) because the structure is a complete tree,
-        # which means that it's balanced
-        # Space: O(1) for iterative solution, O(logn) for recursive
 
         # after adding the new value to the end of the heap
         # we need to find where it belongs in the MinHeap
@@ -92,12 +98,11 @@ class MinHeap:
             parent_idx = self._parent(child_idx)
             parent_value = self.data[parent_idx]
             child_value = self.data[child_idx]
-            if parent_value > child_value:
-                self.data[parent_idx] = child_value
-                self.data[child_idx] = parent_value
-                child_idx = parent_idx
-            else:
+            if parent_value <= child_value:
                 break
+            self.data[parent_idx] = child_value
+            self.data[child_idx] = parent_value
+            child_idx = parent_idx
 
     def _heapify_down(self, parent_idx: int) -> None:
         """Move larger then parent value to the buttom.
@@ -134,13 +139,12 @@ class MinHeap:
             child_idx = left_idx if left_value < right_value else right_idx
             child_value = min(left_value, right_value)
 
-            if parent_value > child_value:
-                self.data[parent_idx] = child_value
-                self.data[child_idx] = parent_value
-                self._heapify_down(child_idx)
-                parent_idx = child_idx
-            else:
+            if parent_value <= child_value:
                 break
+            self.data[parent_idx] = child_value
+            self.data[child_idx] = parent_value
+            self._heapify_down(child_idx)
+            parent_idx = child_idx
 
     def _parent(self, idx: int) -> int:
         return (idx - 1) // 2

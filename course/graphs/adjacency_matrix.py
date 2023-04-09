@@ -1,25 +1,29 @@
 """
-          Graph                        Adjacency Matrix
+          Graph                        Adjacency Matrix         Adjacency List
 
            (10)                         0   1   2   3
-      [0] ➜  ➜  ➜ [1]                 ----|---|---|---|
-       ↑  ⬊  (5)   ↑                0 |  0  10   0   5
-   (7) ↑     ⬊     ↑ (1)            1 |  0   0   0   0
-       ↑   (2)   ⬊ ↑                2 |  7   0   0   0
-      [2] ←  ←  ← [3]               3 |  0   1   2   0
+      [0] ➜  ➜  ➜ [1]                 ----|---|---|---|         {
+       ↑  ⬊  (5)   ↑                0 |  0  10   0   5            0: [{"to": 1, "weight": 10}, {"to": 3, "weight": 5}],
+   (7) ↑     ⬊     ↑ (1)            1 |  0   0   0   0            1: [],
+       ↑   (2)   ⬊ ↑                2 |  7   0   0   0            2: [{"to": 0, "weight": 7}],
+      [2] ←  ←  ← [3]               3 |  0   1   2   0            3: [{"to": 1, "weight": 1}, {"to": 2, "weight": 2}],
+                                                                }
 
     Legend: [] - node
             () - weight
             ➜  - direction
 
+To run tests: pytest -m graphs
 """
+
 from collections import deque
-from dataclasses import dataclass
 from typing import List, Optional
+
+from course.data_structures import GraphEdge
 
 
 def adjacency_matrix_bfs(graph: List[List[int]], source: int, needle: int) -> Optional[List[int]]:
-    # Time: O(n^2) because we need to visit every adjacent node of each node
+    # Time: O(n^2) because for every node we need to visit it's neighbor
     # Space: O(n^2) we need to store for each node adjacency to other nodes
 
     # For better understanding let's use the graph depicted above
@@ -84,12 +88,6 @@ def adjacency_matrix_bfs(graph: List[List[int]], source: int, needle: int) -> Op
 
     # The final result is [0, 3, 2]
     return [source] + out[::-1]
-
-
-@dataclass
-class GraphEdge:
-    to: int
-    weight: int
 
 
 def adjacency_list_dfs(graph: List[GraphEdge], source: int, needle: int) -> Optional[List[int]]:

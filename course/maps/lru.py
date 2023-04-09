@@ -1,16 +1,11 @@
+"""
+To run tests: pytest -m maps
+"""
+
 from typing import Optional
 
+from course.data_structures import DoublyLinkedNode
 from course.maps.dictionary import Dictionary
-
-
-class Node:
-    def __init__(self, value: int, next: Optional["Node"] = None, prev: Optional["Node"] = None) -> None:  # noqa: A002
-        self.value = value
-        self.next = next
-        self.prev = prev
-
-    def __hash__(self) -> int:
-        return hash(self.value)
 
 
 class LRU:
@@ -30,7 +25,7 @@ class LRU:
 
     # For all operations it's the same time/space complexities
     # Time: O(1) because we do map lookup + linking/unlinking node and it doesn't
-    # depend on the size of LRU cache
+    #   depend on the size of LRU cache
     # Space: O(1) the sam as for time
     # basically there are no loops or recursions
 
@@ -47,10 +42,11 @@ class LRU:
         node = self.lookup.get(key)
         # if node doesn't exist - create one with the value and put it in the beginning
         if node is None:
-            node = Node(value)
+            node = DoublyLinkedNode(value)
             self._prepend(node)
-            # as new node is added in case the length exceeds capacity we need to trim cache
+            # after the new node is added we need to trim cache in case the length exceeds capacity
             self._trim_cache()
+            # and update lookup tables
             self.lookup[key] = node
             self.reverse_lookup[node] = key
         else:
@@ -59,7 +55,7 @@ class LRU:
             self._prepend(node)
             node.value = value
 
-    def get(self, key: int) -> Optional[Node]:
+    def get(self, key: int) -> Optional[DoublyLinkedNode]:
         """Return node's value if it can be accessed by the key, in other case - return None."""
         # check cache for existence
         node = self.lookup.get(key)
@@ -73,7 +69,7 @@ class LRU:
         # return the value we found or None if not exist
         return node.value
 
-    def _detach(self, node: Node) -> None:
+    def _detach(self, node: DoublyLinkedNode) -> None:
         # if there is a node in front
         if node.prev:
             node.prev.next = node.next
@@ -93,7 +89,8 @@ class LRU:
         # don't forget to update the length
         self.length -= 1
 
-    def _prepend(self, node: Node) -> None:
+    def _prepend(self, node: DoublyLinkedNode) -> None:
+        # don't forget to update the length
         self.length += 1
 
         # if it's just an empty cache
@@ -113,7 +110,6 @@ class LRU:
         node = self.tail
         # unlink the last node
         self._detach(node)
-
         # cleanup lookup tables
         key = self.reverse_lookup.get(node)
         self.lookup.pop(key)

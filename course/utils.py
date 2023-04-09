@@ -10,9 +10,9 @@ def is_empty_function(func: Callable) -> bool:
     def empty_func_with_doc() -> None:
         """Empty function with docstring."""
 
-    return (
-        func.__code__.co_code == empty_func.__code__.co_code
-        or func.__code__.co_code == empty_func_with_doc.__code__.co_code
+    return func.__code__.co_code in (
+        empty_func.__code__.co_code,
+        empty_func_with_doc.__code__.co_code,
     )
 
 

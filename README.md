@@ -28,13 +28,32 @@ Have I mentioned that [FrontendMasters.com](https://frontendmasters.com/) provid
 
 The main caveat of the course (that you might have already spotted) is that it's for fronted developers, so the code is presented in javascript/typescript. I don't know any of those, I'm just an average python developer :monkey:
 
-The good thing that algorithms are more or less a universal thing, so it's easy to understand them even if they are written in other language. That means that if you know only python that should not stop you. I mean if I somehow managed to understand the code in the course you can definitely do the same.
+The good thing that algorithms are more or less a universal thing, so it's easy to understand them even if they are written in other language. That means that if you know only python that should not stop you. I mean if I somehow managed to understand the code from the course you definitely can do the same.
 
-The bad thing that all the test that are provided for the course are also for javascript/typescript (or only typescript, for me it's all the same thing :shrug:). That why this repo is created.
+The bad thing that all the tests that are provided for the course are also for javascript/typescript (or only typescript, for me it's all the same thing :shrug:). That why this repo is created.
 
 > **Note**: How you should use this repo: watch the course, implement algorithms here and run corresponding tests. It's that easy!
 
 Good luck and happy programming.
+
+# Project structure
+
+Project structure might look a bit strange (why in the world queue and stack implementations are in the sort section :shrug:) but I decided to keep it as is so it's aligned to the structure of the course.
+
+- **course**
+  - **arrays**: `array_list` and `ring_buffer` that were explained in the video but not implemented. Though it's a good practicing to implement them on your own.
+  - **doubly_linked_list**: implementation of doubly linked list with all common methods like push, prepand, append, get, ...
+  - **graphs**: adjacency matrix and dijkstra shortest path algorithms.
+  - **heap**: MinHeap implementation. Try to implement MaxHeap on your own, it's not that different from MinHeap :wink:
+  - **maps**: LRU cache and dictionary implementation. Dictionary was explained in the video but not implemented.
+  - **quick_sort**: quick sort with pivot in the end (as in the video) plus with pivot in the middle (wasn't implemented in the video).
+  - **recursion**: maze solver with recursion.
+  - **search**: linear and binary searches; 'two crystal balls' exercise with sqrt(n) time complexity (as in the video) plus log(n) time complexity implementation.
+  - **sort**: bubble sort plus queue and stack implementations; weird combination but this is how it's placed in the course.
+  - **trees**: algorithms for binary trees such as search, traversal and comparison of two trees. Plus implementation of trie tree that was explained in the video but not implemeneted.
+- **tests**
+  - *the same structure as in `course`*
+- *pyproject.toml*: package dependencies are stored here and managed py [Poetry](https://python-poetry.org/)
 
 # How to use it
 
@@ -44,7 +63,7 @@ Good luck and happy programming.
     poetry install
     ```
 
-2. Implement algorithm and run tests:
+2. Implement an algorithm and run tests:
 
     - To run all tests:
 
@@ -58,7 +77,7 @@ Good luck and happy programming.
         pytest tests/search/linear_search_test.py
         ```
 
-    - To run the whole chapter you can use pytest marks:
+    - To run the whole chapter you can use pytest marks (mark is shown at the top of each python file with algorithm implementation):
 
         ```bash
         pytest -m search

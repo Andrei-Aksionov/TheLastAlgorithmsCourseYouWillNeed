@@ -1,4 +1,4 @@
-from course.trees.binary_tree_node import BinaryTreeNode
+from course.data_structures import BinaryTreeNode
 
 """
 Trees side-by-side
@@ -14,7 +14,7 @@ Trees side-by-side
          7       29   45                     7       29   45
                                                     /      \
                                                    21      49
-"""  # noqa: W605
+"""
 
 # ----------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ Trees side-by-side
        5    15     30   100
         \         /  \
          7       29   45
-"""  # noqa: W605
+"""
 
 tree_1 = BinaryTreeNode(
     value=20,
@@ -73,7 +73,7 @@ tree_1 = BinaryTreeNode(
          7       29   45
                 /      \
                21      49
-"""  # noqa: W605
+"""
 
 tree_2 = BinaryTreeNode(
     value=20,

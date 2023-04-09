@@ -48,21 +48,20 @@
     Iterate over the list of nodes from which we came from and return this path.
     For this examples the answer is: [0, 3, 1]
 
+To run tests: pytest -m graphs
 """
 
 import heapq
-from dataclasses import dataclass
 from typing import List
 
-
-@dataclass
-class GraphEdge:
-    to: int
-    weight: int
+from course.data_structures import GraphEdge
 
 
 def get_lowest_unvisited(seen: List[bool], distances: List[int]) -> int:
     """Return an index of the node with the lowest distance."""
+
+    # Time: O(V) as we need to check all nodes of the graph
+    # Space: O(1) no external storage is used
 
     lowest_distance_idx = -1
     lowest_distance = float("inf")
@@ -148,7 +147,7 @@ def dijkstra_list_shortest_path_min_heap(source: int, sink: int, arr: List[Graph
         # we had to traverse over all nodes O(n)
         # now with help of MinHeap we can do it in O(1) because the smallest distance
         # node is in the top of MinHeap
-        # with combination of pushing to MinHeap it reduces time complexity from O(n) -> O(logn)
+        # with combination of pushing to MinHeap it reduces overall time complexity from O(n) -> O(logn)
         current_distance, current_node = heapq.heappop(current_distances)
         # if we have already found the needle/sink
         if current_node == sink:

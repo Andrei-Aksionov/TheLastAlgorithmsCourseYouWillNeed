@@ -1,18 +1,12 @@
 """
 Note: it's an optional algorithm that was explained in the course, but not implemented.
+
+To run tests: pytest -m trees
 """
 
-from dataclasses import dataclass, field
-from typing import Dict, List
+from typing import List
 
-
-@dataclass
-class TrieNode:
-    char: str
-    # if this node is an end char of the word
-    is_word_end: bool = False
-    # every node has from 0 to inf children
-    children: Dict[str, "TrieNode"] = field(default_factory=dict)
+from course.data_structures import TrieNode
 
 
 class Trie:
@@ -52,8 +46,8 @@ class Trie:
     def insert(self, word: str) -> None:
         """Insert new word in the trie tree."""
 
-        # Time: O(n) because we need to iterate over all char of the inputted word
-        # Space: O(n) at worst we need to create TrieNodes and insert for all the chars
+        # Time: O(n) because we need to iterate over all chars of the inputted word
+        # Space: O(n) at worst we need to create n TrieNodes and insert for all the chars
         # n - length of the word to insert
 
         # start from the root of the trie
@@ -107,7 +101,7 @@ class Trie:
         return words
 
     def delete(self, prefix: str) -> None:
-        """Deletes the prefix from the trie.
+        """Delete the prefix from the trie.
 
         This one is a bit trickier: if the last character doesn't have children we need to delete
         all characters up until the next .is_word_end char.
@@ -134,11 +128,11 @@ class Trie:
             node = node.children[char]
             stack.append(node)
 
-        # mark the last char as not the end in any case
+        # mark the last char as not the end of a word
         node = stack.pop()
         node.is_word_end = False
 
-        # if there other nodes after the current one - simply quit
+        # if there are other nodes after the current one - simply quit
         if len(node.children) > 1:
             return
 

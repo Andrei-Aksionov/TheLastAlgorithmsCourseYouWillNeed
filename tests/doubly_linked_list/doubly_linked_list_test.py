@@ -7,7 +7,7 @@ from course.doubly_linked_list.doubly_linked_list import LinkedList
 from course.utils import is_empty_class
 
 
-@pytest.mark.linked_list
+@pytest.mark.doubly_linked_list
 @pytest.mark.skipif(is_empty_class(LinkedList), reason="non implemented class LinkedList")
 class TestLinkedList:
     def test_linked_list_all_combined(self) -> None:

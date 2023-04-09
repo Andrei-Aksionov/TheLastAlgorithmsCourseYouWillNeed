@@ -1,6 +1,6 @@
 [tool.poetry]
 authors = ["Andrei.Aksionov"]
-description = ""
+description = "Python implementaiton of algorithms presented on FrontendMasters.com by ThePrimeagen."
 license = "MIT"
 name = "thelastalgorithmscourseyouwillneed"
 packages = [{include = "course"}]
@@ -26,7 +26,18 @@ pytest = "~7.2.2"
 pytest-cov = "~4.0.0"
 
 [tool.pytest.ini_options]
-markers = ["search", "sort", "recursion", "quick_sort", "linked_list", "binary_tree", "heap", "graph", "map", "trie", "array"]
+markers = [
+  "arrays",
+  "doubly_linked_list",
+  "graphs",
+  "heap",
+  "maps",
+  "quick_sort",
+  "recursion",
+  "search",
+  "sort",
+  "trees",
+]
 python_files = "*_test.py"
 testpaths = ["tests"]
 
@@ -34,28 +45,24 @@ testpaths = ["tests"]
 
 [tool.ruff]
 ignore = [
-  "ANN002", # Missing type annotation for *_
-  "ANN003", # Missing type annotation for **kwargs
-  "ANN101", # Missing type annotation for self in method
   "B905", # zip() without an explicit strict= parameter
-  "D",
-  "EM", # flake8-errmsg
-  "FBT", # flake8-boolean-trap
-  "G", # flake8-logging-format
-  "INP001", # File {filename} is part of an implicit namespace package. Add an __init__.py
   "N812", # Lowercase {name} imported as non-lowercase {asname}
   "PLR0913", # Too many arguments to function call
   "PLR2004", # Magic value used in comparison, consider replacing {value} with a constant variable
   "PT023", # use @pytest.mark.asyncio() over @pytest.mark.asyncio
-  "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
   "SIM110", # Use `return any(item == needle for item in haystack)` instead of `for` loop
-  "TCH", # flake8-type-checking
-  "TRY003", # Avoid specifying long messages outside the exception class
-  "UP032", # Use f-string instead of `format`
+  "W605", # invalid-escape-sequence
 ]
 line-length = 120
 select = [
-  "ALL",
+  "B",
+  "E",
+  "F",
+  "N",
+  "PLR",
+  "PT",
+  "SIM",
+  "W",
 ]
 target-version = "py38"
 

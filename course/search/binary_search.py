@@ -1,7 +1,11 @@
+"""
+To run tests: pytest -m search
+"""
+
 from typing import List
 
 """
-This implementation reflects of what was shown in the video, only in Python.
+This implementation reflects what was shown in the video, only in Python.
 I personally not a huge fun of it, that's why it's commented out
 
 def binary_search(haystack: List[int], needle: int) -> bool:
@@ -13,7 +17,7 @@ def binary_search(haystack: List[int], needle: int) -> bool:
         v = haystack[m]
         if v == needle:
             return True
-        elif v > needle: # noqa: RET505
+        elif v > needle:
             hi = m
         else:
             lo = m + 1
@@ -22,7 +26,8 @@ def binary_search(haystack: List[int], needle: int) -> bool:
 
 
 def binary_search(haystack: List[int], needle: int) -> bool:
-    # O(logn) time | O(1) space
+    # Time: O(logn) each time we split haystack by a factor of 2
+    # Space: O(1) no extra storage is used
 
     left = 0
     right = len(haystack) - 1
