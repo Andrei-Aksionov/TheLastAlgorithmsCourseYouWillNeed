@@ -24,7 +24,4 @@ def search_dfs(head: Optional[BinaryTreeNode], needle: int) -> bool:
 
 
 def search_bfs(head: BinaryTreeNode, needle: int) -> bool:
-    # TODO: maybe it was said for tree comparison?
-    # Note: in the video it was stated that it's not possible to do this with breadth first search
-    # I said "hold my beer" and implemented it (you can see the implementation if the 'answers' branch)
     ...
