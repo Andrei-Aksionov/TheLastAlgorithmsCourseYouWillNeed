@@ -1,6 +1,6 @@
 [tool.poetry]
 authors = ["Andrei.Aksionov"]
-description = ""
+description = "Python implementaiton of algorithms presented on FrontendMasters.com by ThePrimeagen."
 license = "MIT"
 name = "thelastalgorithmscourseyouwillneed"
 packages = [{include = "course"}]
