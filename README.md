@@ -83,6 +83,12 @@ Project structure might look a bit strange (why in the world queue and stack imp
         pytest -m search
         ```
 
+## Answers
+
+In the `main` branch there are only empty bodies of classes and functions, without implementation.
+
+Stuck and how no idea what to do? You can check my implementation in the `answers` branch. </br> But try to do it as minimal as possible: the more you do on your own (even if it hurts :persevere:) the better you are gonna understand algorithms.
+
 # Want to participate in development?
 
 Install all packages required for development:
