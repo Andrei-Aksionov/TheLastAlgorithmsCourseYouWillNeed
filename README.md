@@ -16,13 +16,13 @@
       </a>
 </div>
 
-Have you heard about an awesome [algorithms course](https://frontendmasters.com/courses/algorithms/) on `FrontendMasters.com` presented by `ThePrimeagen`? If no, then you are missing a lot: it is well explained and presented in a clear and sometimes funny way (it's ThePrimeagen after all :smirk:) yet coveres all the basic in a deep enough manner.
+Have you heard about an awesome [algorithms course](https://frontendmasters.com/courses/algorithms/) on `FrontendMasters.com` presented by `ThePrimeagen`? If no, then you are missing a lot: it is well explained and presented in a clear and sometimes funny way (it's ThePrimeagen after all :smirk:) yet covers all the basic in a deep enough manner.
 
 Is it indeed the last algorithmic course you will ever need? Highly doubt about it. The course teaches you the basics, the rest you have to learn yourself by practicing.
 
 > It's like driving school in a way that it teaches you the basics. The remaining attributes of a PRO driver you have to learn on your own: double parking, tailgating, left lane hogging, yelling at other drivers and constantly honking (if you are a New Yorker) :grinning:.
 
-Have I mentioned that [FrontendMasters.com](https://frontendmasters.com/) provides you a free access to any 5 course of your choice? Yes, this algorighms course is for free. So what are you waiting for? Steady, ready, go ... :runner:
+Have I mentioned that [FrontendMasters.com](https://frontendmasters.com/) provides you a free access to any 5 courses of your choice? Yes, this algorithms course is for free. So what are you waiting for? Steady, ready, go ... :runner:
 
 # Motivation for this repository
 
@@ -82,6 +82,12 @@ Project structure might look a bit strange (why in the world queue and stack imp
         ```bash
         pytest -m search
         ```
+
+## Answers
+
+In the `main` branch there are only empty bodies of classes and functions, without implementation.
+
+Stuck and have no idea what to do? You can check my implementation in the `answers` branch. </br> But try to do it as minimal as possible: the more you do on your own (even if it hurts :persevere:) the better you are gonna understand algorithms.
 
 # Want to participate in development?
 
